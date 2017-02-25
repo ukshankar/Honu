@@ -5,13 +5,16 @@ import { AboutPage } from '../pages/about/about';
 import { SignOnPage } from '../pages/signon/signon';
 import { HomePage } from '../pages/home/home';
 import { UserHomePage } from '../pages/userhome/userhome';
+import { LoginComponent } from '../pages/signon/logon';
+import { SignOn } from '../providers/signon';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     SignOnPage,
-    UserHomePage
+    UserHomePage,
+    LoginComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -21,8 +24,9 @@ import { UserHomePage } from '../pages/userhome/userhome';
     MyApp,
     HomePage,
     SignOnPage,
-    UserHomePage
+    UserHomePage,
+    LoginComponent
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},SignOn]
 })
 export class AppModule {}
