@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { UserHomePage } from '../pages/userhome/userhome';
 import { LoginComponent } from '../pages/signon/logon';
 import { SignOn } from '../providers/signon';
+import {AppConfig} from '../config/appconfig';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,6 @@ import { SignOn } from '../providers/signon';
     UserHomePage,
     LoginComponent
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},SignOn]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},SignOn,AppConfig]
 })
 export class AppModule {}
