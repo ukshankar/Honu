@@ -1,21 +1,107 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.1</modelVersion>
 	<groupId>com.honu.service</groupId>
 	<artifactId>HonuService</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Service Webapp</name>
 	<url>http://maven.apache.org</url>
+  <profiles>
+        <profile>
+            <id>ENV</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
 
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.eclipse.m2e</groupId>
+                            <artifactId>lifecycle-mapping</artifactId>
+                            <version>1.0.0</version>
+                            <configuration>
+                                <lifecycleMappingMetadata>
+                                    <pluginExecutions>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>org.apache.maven.plugins</groupId>
+                                                <artifactId>maven-antrun-plugin</artifactId>
+                                                <versionRange>[1.7,)</versionRange>
+                                                <goals>
+                                                    <goal>run</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <ignore />
+
+                                            </action>
+                                        </pluginExecution>
+
+                                    </pluginExecutions>
+                                </lifecycleMappingMetadata>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <tasks>
+                                        <echo message="will copy env properties for ${ENV}"></echo>
+										<delete file="flyway.properties"/>
+                                        <copy
+                                            todir="target/classes"
+                                            overwrite="true"
+                                            verbose="true">
+                                            <fileset dir="src/main/resources_${ENV}" />
+                                        </copy>
+										<copy file="src/main/resources_${ENV}/flyway.properties" tofile="flyway.properties"/>
+                                        
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+
+                </plugins>
+
+            </build>
+        </profile>
+
+
+    </profiles>
 	<properties>
 		<spring.version>4.3.6.RELEASE</spring.version>
 		<jackson.version>2.8.6</jackson.version>
 		<jdk.version>1.8</jdk.version>
+		<ENV>local</ENV>
+		<dbDriver>org.postgresql.Driver</dbDriver>
 	</properties>
 
 	<dependencies>
+      <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.2-1003-jdbc4</version>
+        </dependency>
 
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
 		<!-- Spring 3 dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -37,8 +123,8 @@
 
 		<!-- Jackson JSON Mapper -->
 		<dependency>
-    		<groupId>com.fasterxml.jackson.core</groupId>
-    		<artifactId>jackson-databind</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
 
@@ -66,20 +152,31 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
+
 			<plugin>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-maven-plugin</artifactId>
-			<version>9.2.11.v20150529</version>
-			<configuration>
-				<scanIntervalSeconds>10</scanIntervalSeconds>
-				<webApp>
-				     <contextPath>/</contextPath>
-				</webApp>
-			<httpConnector>
-          	     <port>8888</port>
-        	</httpConnector>
-			</configuration>
-			  </plugin>		
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.11.v20150529</version>
+			</plugin>
+			 <plugin>
+                <groupId>com.googlecode.flyway</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <locations>
+                        <location>sql</location>
+                    </locations>
+                    <outOfOrder>true</outOfOrder>
+                    <driver>org.postgresql.Driver</driver>
+                </configuration>
+                <dependencies>    
+                    <dependency>
+                        <groupId>com.googlecode.flyway</groupId>
+                        <artifactId>flyway-core</artifactId>
+                        <version>2.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 		</plugins>
 	</build>
 
