@@ -26,14 +26,13 @@ public class AppointmentsController {
 
     private final AppointmentBook appointmentBook;
 
-    @Autowired
-    public AppointmentsController(AppointmentBook appointmentBook) {
+    @Autowired    public AppointmentsController(AppointmentBook appointmentBook) {
         this.appointmentBook = appointmentBook;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody Map<String, Appointment> get() {
-    	System.out.println("hello");
+    	System.out.println("teeraer");
         return appointmentBook.getAppointmentsForToday();
     }
 

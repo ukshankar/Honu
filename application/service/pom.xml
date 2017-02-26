@@ -87,7 +87,8 @@
 		<jackson.version>2.8.6</jackson.version>
 		<jdk.version>1.8</jdk.version>
 		<ENV>local</ENV>
-		<dbDriver>org.postgresql.Driver</dbDriver>
+
+		
 	</properties>
 
 	<dependencies>
@@ -133,6 +134,7 @@
 	<build>
 		<finalName>HonuService</finalName>
 		<plugins>
+		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -153,29 +155,34 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.2.11.v20150529</version>
-			</plugin>
+		<plugin>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-maven-plugin</artifactId>
+			<version>9.2.11.v20150529</version>
+			<configuration>
+				<scanIntervalSeconds>10</scanIntervalSeconds>
+				<webApp>
+				     <contextPath>/</contextPath>
+				</webApp>
+			<httpConnector>
+          	     <port>8888</port>
+        	</httpConnector>
+			</configuration>
+			  </plugin>		
 			 <plugin>
-                <groupId>com.googlecode.flyway</groupId>
+                <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
-                <version>2.2</version>
+                <version>4.1.1</version>
                 <configuration>
+                 
                     <locations>
                         <location>sql</location>
                     </locations>
+                    
                     <outOfOrder>true</outOfOrder>
                     <driver>org.postgresql.Driver</driver>
                 </configuration>
-                <dependencies>    
-                    <dependency>
-                        <groupId>com.googlecode.flyway</groupId>
-                        <artifactId>flyway-core</artifactId>
-                        <version>2.2</version>
-                    </dependency>
-                </dependencies>
+               
             </plugin>
 		</plugins>
 	</build>
