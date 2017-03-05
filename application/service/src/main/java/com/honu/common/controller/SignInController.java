@@ -17,7 +17,7 @@ public class SignInController {
 	public @ResponseBody
 	User signIn(@RequestBody User user) {
 
-		user.setMessage("Hello "+ user.getName() + " !!!");
+		//user.setMessage("Hello "+ user.getName() + " !!!");
 		
 
 		return user;

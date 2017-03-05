@@ -8,6 +8,7 @@ import { UserHomePage } from '../pages/userhome/userhome';
 import { LoginComponent } from '../pages/signon/logon';
 import { SignOn } from '../providers/signon';
 import {AppConfig} from '../config/appconfig';
+import {GoogleSignIn} from '../component/google';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {AppConfig} from '../config/appconfig';
     HomePage,
     SignOnPage,
     UserHomePage,
-    LoginComponent
+    LoginComponent,
+    GoogleSignIn
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +28,8 @@ import {AppConfig} from '../config/appconfig';
     HomePage,
     SignOnPage,
     UserHomePage,
-    LoginComponent
+    LoginComponent,
+    GoogleSignIn
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},SignOn,AppConfig]
 })
