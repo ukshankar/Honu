@@ -31,18 +31,14 @@ public class UsersController {
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST,headers="Accept=application/json")
 	public @ResponseBody
 	void authenticateUser(@RequestBody User user) {
-
-		System.out.println("Auth " + user.getEmail()+"-"+ user.getPassword());
+	
+		userSer.authenticateUser(user);
 
 	}
 	
 	@RequestMapping(value={"{email}"},method = RequestMethod.GET,headers="Accept=application/json")
 	public  User getUser(@PathVariable String email) {
-		User user = new User();
-		user.setEmail("abc@123.com");
-		user.setFirstName("F1");
-		user.setLastName("L1");
-		return user;
+		return userSer.findUserbyUserName(email);
 
 	}
 	

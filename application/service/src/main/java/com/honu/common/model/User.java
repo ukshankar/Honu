@@ -15,6 +15,9 @@ public class User {
 
 
 	Long id;
+	/**
+	 * EMail will be same as username
+	 */
 	String email;
 	String password;
 	String firstName;

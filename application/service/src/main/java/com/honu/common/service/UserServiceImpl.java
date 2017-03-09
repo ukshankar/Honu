@@ -2,6 +2,7 @@ package com.honu.common.service;
 
 import javax.transaction.Transactional;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,22 @@ public class UserServiceImpl implements UserService{
 	UserDao dao;
 	
 	public void save(User user) {
+		//convert the plain text password to the encrypted password
+		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         dao.save(user);
     }
+	
+	@Override
+	public User findUserbyUserName(String username) {
+	
+		return dao.findByUserName(username);
+	}
+	
+	@Override
+	public boolean authenticateUser(User user) {
+		User userFromDb = findUserbyUserName(user.getEmail());
+		return BCrypt.checkpw(user.getPassword(),userFromDb.getPassword());
+				
+		
+	}
 }
