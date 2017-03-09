@@ -19,15 +19,10 @@ public class SignInController {
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody
 	User signIn(@RequestBody User user) {
-<<<<<<< HEAD
-
-		//user.setMessage("Hello "+ user.getName() + " !!!");
-=======
  
 		System.out.println("Hello");
-		user.setMessage("Hello "+ user.getName() + " !!!");
->>>>>>> origin/master
-		
+		user.setFirstName("Hello");
+
 
 		return user;
 
