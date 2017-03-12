@@ -1,37 +1,15 @@
-<div>
-  <h1 x-large class="sample-content">Your Content Here</h1>
-
-  <hr>
-
-  <div>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
+<div class="w3-content" style="max-width:1500px">
+  <!-- Header -->
+  <header class="w3-panel w3-padding-64 w3-center w3-opacity">
+    <h1 id="header">HONU</h1>
+  </header>
+  <div class="w3-container w3-center">
+    <div class="w3-panel"> <button class="w3-btn-block w3-grey w3-round" style="max-width:350px" [routerLink]=" ['./signon'] ">Resume & Cover Letter</button>      </div>
+    <div class="w3-panel"> <button class="w3-btn-block w3-grey w3-round" style="max-width:350px">Mock Interview</button> </div>
+    <div class="w3-panel">
+      <button class="w3-btn-block w3-grey w3-round" style="max-width:350px">Career Advice</button> </div>
+    <div class="w3-panel">
+      <button class="w3-btn-block w3-grey w3-round" style="max-width:350px">Coach & Mentor</button> </div>
   </div>
-
-  <hr>
-
-  <div>
-    <h4>Local State</h4>
-
-    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
-
-      <input
-        [value]="localState.value"
-        (input)="localState.value = $event.target.value"
-        placeholder="Submit Local State to App State"
-        autofocus>
-
-      <button>Submit Value</button>
-    </form>
-    <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
-      -->
-
-    <pre>this.localState = {{ localState | json }}</pre>
-
-  </div>
-
+  <!-- End Page Content -->
 </div>
