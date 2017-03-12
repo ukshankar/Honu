@@ -7,7 +7,7 @@
     "webpack",
     "typescript"
   ],
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
+  "author": "",
   "homepage": "https://github.com/ukshankar/Honu",
   "license": "MIT",
   "scripts": {
