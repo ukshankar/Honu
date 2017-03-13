@@ -16,6 +16,9 @@ export class SignOnComponent implements OnInit {
 
   public localState: any;
 
+  public myLongTitle="true";
+  public myTheme="dark";
+
   constructor(
     public route: Router, public appState:AppState
   ) {}
