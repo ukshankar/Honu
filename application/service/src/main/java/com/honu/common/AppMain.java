@@ -13,7 +13,7 @@ public class AppMain {
 		context.refresh();
 		UserService ser = (UserService)context.getBean("userService");
 		User user = new User();
-		user.setEmail("test");
+		user.setEmail("test"+Math.random());
 		ser.save(user);
 		System.out.println(ser);
 	}
