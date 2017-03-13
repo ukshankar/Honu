@@ -1,13 +1,13 @@
 {
   "name": "honu",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Honu Application with angular2,webpack",
   "keywords": [
     "angular2",
     "webpack",
     "typescript"
   ],
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
+  "author": "",
   "homepage": "https://github.com/ukshankar/Honu",
   "license": "MIT",
   "scripts": {

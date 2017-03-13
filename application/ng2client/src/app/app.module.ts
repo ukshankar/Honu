@@ -15,6 +15,10 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+import { SignOnComponent } from './signon';
+import { GoogleSignInComponent } from './common/google';
+import { MainComponent } from './main';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -27,7 +31,7 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
+
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -53,8 +57,10 @@ type StoreType = {
     AppComponent,
     AboutComponent,
     HomeComponent,
-    NoContentComponent,
-    XLargeDirective
+    SignOnComponent,
+    GoogleSignInComponent,
+    MainComponent,    
+    NoContentComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
