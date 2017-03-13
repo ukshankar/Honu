@@ -39,7 +39,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
   }
   @Autowired
   public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-	  System.out.println("Called here \n\n....1111...");
+	  System.out.println("Called here \n\n.......");
 	  authenticationManagerBuilder
       .userDetailsService(this.userDetailsService)
         .passwordEncoder(passwordEncoder());
@@ -70,8 +70,19 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity httpSecurity) throws Exception {
-	  System.out.println("Called here \n\n......333333.");
-	  httpSecurity.authorizeRequests().anyRequest().authenticated();
+	  httpSecurity
+      .csrf()
+        .disable()
+      .exceptionHandling()
+        .authenticationEntryPoint(this.unauthorizedHandler)
+        .and()
+      .sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+      .authorizeRequests()
+        .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+        .antMatchers("/service/signon/**").permitAll()
+        .anyRequest().authenticated();
 
     // Custom JWT based authentication
     httpSecurity
