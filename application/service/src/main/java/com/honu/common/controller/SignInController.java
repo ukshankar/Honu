@@ -2,6 +2,7 @@ package com.honu.common.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mobile.device.Device;
+import org.springframework.mobile.device.DevicePlatform;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class SignInController {
 	UserService userSer;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody User signIn(@RequestBody User user, Device device) {
+	public @ResponseBody User signIn(@RequestBody User user) {
 
 		System.out.println("Hello");
 		user.setFirstName("Hello");
@@ -34,7 +35,33 @@ public class SignInController {
 		if (honuUser == null) {
 			userSer.save(user);
 		}
-		String token = this.tokenUtils.generateToken(user, device);
+		Device newDevice = new Device() {
+			
+			@Override
+			public boolean isTablet() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public boolean isNormal() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public boolean isMobile() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public DevicePlatform getDevicePlatform() {
+				// TODO Auto-generated method stub
+				return DevicePlatform.ANDROID;
+			}
+		};
+		String token = this.tokenUtils.generateToken(user, newDevice);
 		return user;
 
 	}
