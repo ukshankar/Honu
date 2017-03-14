@@ -93,6 +93,13 @@
 	</properties>
 
 	<dependencies>
+	<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
 	<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
 <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
 <dependency>
@@ -107,7 +114,17 @@
     <artifactId>spring-mobile-device</artifactId>
     <version>1.1.5.RELEASE</version>
 </dependency>
-
+<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client-jackson2 -->
+<dependency>
+    <groupId>com.google.http-client</groupId>
+    <artifactId>google-http-client-jackson2</artifactId>
+    <version>1.22.0</version>
+</dependency>
+<dependency>
+  <groupId>com.google.api-client</groupId>
+  <artifactId>google-api-client</artifactId>
+  <version>1.22.0</version>
+</dependency>
 
     <dependency>
       <groupId>io.jsonwebtoken</groupId>
@@ -149,12 +166,6 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- Jackson JSON Mapper -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
 		
 		<dependency>
     	        <groupId>cglib</groupId>

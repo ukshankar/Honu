@@ -1,5 +1,9 @@
 package com.honu.common.controller;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.Collections;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mobile.device.Device;
 import org.springframework.mobile.device.DevicePlatform;
@@ -9,13 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.json.webtoken.JsonWebToken.Payload;
 import com.honu.common.configuration.TokenUtils;
 import com.honu.common.model.User;
 import com.honu.common.service.UserService;
 
+
+
 @Controller
 @RequestMapping("/signon")
 public class SignInController {
+
+	 private  String clientId = "280072419521-l9s8j0jig6oee7hqrs1a53itd86dre0h.apps.googleusercontent.com";
 	@Autowired
 	private TokenUtils tokenUtils;
 	@Autowired
@@ -24,6 +39,13 @@ public class SignInController {
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody User signIn(@RequestBody User user) {
 
+		try {
+			verifyToken(user.getGoogleToken());
+		} catch (GeneralSecurityException e) {
+			throw new RuntimeException("user not valid");
+		} catch (IOException e) {
+			throw new RuntimeException("user not valid");
+		}
 		System.out.println("Hello");
 		user.setFirstName("Hello");
 
@@ -61,12 +83,51 @@ public class SignInController {
 				return DevicePlatform.ANDROID;
 			}
 		};
+		
 		String token = this.tokenUtils.generateToken(user, newDevice);
 		user.setJwtToken(token);
 		return user;
 
 	}
 
+	
+	public void verifyToken(String idTokenString) throws GeneralSecurityException, IOException {
+		HttpTransport transport = GoogleNetHttpTransport.newTrustedTransport();
+		JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
+		GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
+			    .setAudience(Collections.singletonList(clientId))
+			    // Or, if multiple clients access the backend:
+			    //.setAudience(Arrays.asList(CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3))
+			    .build();
+
+			// (Receive idTokenString by HTTPS POST)
+
+			GoogleIdToken idToken = verifier.verify(idTokenString);
+			if (idToken != null) {
+			  Payload payload = idToken.getPayload();
+
+			  // Print user identifier
+			  String userId = payload.getSubject();
+			  System.out.println("User ID: " + userId);
+
+			  // Get profile information from payload
+			  //String email = payload.get
+			  //boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
+			  String name = (String) payload.get("name");
+			  System.out.println(name);
+			  String pictureUrl = (String) payload.get("picture");
+			  String locale = (String) payload.get("locale");
+			  String familyName = (String) payload.get("family_name");
+			  String givenName = (String) payload.get("given_name");
+
+			  // Use or store profile information
+			  // ...
+
+			} else {
+			  System.out.println("Invalid ID token.");
+			}
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody String get() {
 		System.out.println("hello");
