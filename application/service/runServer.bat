@@ -1,1 +1,1 @@
-mvn -DENV=server clean install flyway:info flyway:clean flyway:migrate
+mvn -DENV=server clean install flyway:info flyway:clean flyway:migrate jetty:run
