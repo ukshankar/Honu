@@ -12,6 +12,7 @@ public class AppMain {
 		context.scan("com.honu"); 
 		context.refresh();
 		UserService ser = (UserService)context.getBean("userService");
+		ser.findUserbyUserName("hello");
 		User user = new User();
 		user.setEmail("test"+Math.random());
 		ser.save(user);
