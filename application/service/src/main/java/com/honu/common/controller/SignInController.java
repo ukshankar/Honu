@@ -62,6 +62,7 @@ public class SignInController {
 			}
 		};
 		String token = this.tokenUtils.generateToken(user, newDevice);
+		user.setJwtToken(token);
 		return user;
 
 	}

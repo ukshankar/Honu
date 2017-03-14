@@ -12,10 +12,14 @@ public class AppMain {
 		context.scan("com.honu"); 
 		context.refresh();
 		UserService ser = (UserService)context.getBean("userService");
-		ser.findUserbyUserName("hello");
+		System.out.println(ser.findUserbyUserName("something@some.com"));
+		System.out.println(ser);
 		User user = new User();
 		user.setEmail("test"+Math.random());
+		user.setPassword("adfd");
+		user.setFirstName("ff");
+		user.setLastName("dafr");
 		ser.save(user);
-		System.out.println(ser);
+		System.out.println(user);
 	}
 }

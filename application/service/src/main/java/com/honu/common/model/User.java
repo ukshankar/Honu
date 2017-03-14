@@ -31,7 +31,7 @@ public class User implements UserDetails {
 	String firstName;
 	String lastName;
 	private Date lastPasswordReset;
-	private int reputation = Reputation.GOOGLE;
+	private Integer reputation = Reputation.GOOGLE;
 
 	private Collection<? extends GrantedAuthority> authorities;
 	private Boolean accountNonExpired = true;
@@ -63,11 +63,11 @@ public class User implements UserDetails {
 		this.id = id;
 	}
 	
-	public int getReputation() {
+	public Integer getReputation() {
 		return reputation;
 	}
 	
-	public void setReputation(int reputation) {
+	public void setReputation(Integer reputation) {
 		this.reputation = reputation;
 	}
 
@@ -207,6 +207,15 @@ public class User implements UserDetails {
 
 	public void setJwtToken(String jwtToken) {
 		this.jwtToken = jwtToken;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", lastPasswordReset=" + lastPasswordReset + ", reputation=" + reputation
+				+ ", authorities=" + authorities + ", accountNonExpired=" + accountNonExpired + ", accountNonLocked="
+				+ accountNonLocked + ", credentialsNonExpired=" + credentialsNonExpired + ", enabled=" + enabled
+				+ ", googleToken=" + googleToken + ", jwtToken=" + jwtToken + "]";
 	}
 	
 	
