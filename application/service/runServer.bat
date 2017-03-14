@@ -1,0 +1,1 @@
+mvn -DENV=server clean install flyway:info flyway:clean flyway:migrate
