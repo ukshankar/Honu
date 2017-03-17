@@ -31,6 +31,8 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
+import { SignOnProvider } from './signon/signon.provider';
+
 
 
 import '../styles/styles.scss';
@@ -70,7 +72,8 @@ type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    SignOnProvider
   ]
 })
 export class AppModule {

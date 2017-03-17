@@ -5,12 +5,15 @@ import {
 import { Router } from '@angular/router';
 import {GoogleSignInSuccess} from '../shared/google';
 import { AppState } from '../app.service';
+import { SignOnProvider } from './signon.provider';
+
 
 @Component({
   selector: 'signon',
   styles: [`
   `],
-  template:require('./signon.component.html')
+  template:require('./signon.component.html'),
+  providers: [SignOnProvider] 
 })
 export class SignOnComponent implements OnInit {
 
@@ -20,7 +23,7 @@ export class SignOnComponent implements OnInit {
   public myTheme="dark";
 
   constructor(
-    public route: Router, public appState:AppState
+    public route: Router, public appState: AppState, public signOnProvider: SignOnProvider
   ) {}
 
   public ngOnInit() {
@@ -37,6 +40,12 @@ export class SignOnComponent implements OnInit {
         .getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     this.appState.set("name",profile.getName())
-    this.route.navigate(['main']);
+    this.signOnProvider.signIn({"googleToken":id,"email":profile.getEmail(),"password":""})
+      .subscribe(user => {
+        this.appState.set("user",user);
+        console.log(user);
+        this.route.navigate(['main']);
+      })
+    
   }
 }

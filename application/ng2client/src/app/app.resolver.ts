@@ -2,6 +2,10 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { User } from './common/model/user.interface';
+import { AppConfig } from './config';
 
 @Injectable()
 export class DataResolver implements Resolve<any> {

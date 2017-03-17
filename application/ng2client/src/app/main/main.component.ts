@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   constructor(
     public appState: AppState
   ) {
-     this.name=appState.get("name");
+     this.name=appState.get("user").getFirstName();
   }
 
   public ngOnInit() {
