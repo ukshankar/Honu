@@ -15,6 +15,6 @@ export class SignOnProvider {
 
   signIn(user:User): Observable<User> {
     return this.http.post(this.appConfig.serverHost+'/service/signon',user)
-      .map(res => <User>(res.json()))
+      .map(res => <User>(res.json()));
   }
 }

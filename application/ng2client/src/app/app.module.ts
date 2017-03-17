@@ -32,6 +32,7 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { SignOnProvider } from './signon/signon.provider';
+import {AppConfig} from './config'
 
 
 
@@ -41,7 +42,8 @@ import '../styles/headings.css';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  AppConfig
 ];
 
 type StoreType = {
@@ -72,8 +74,7 @@ type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS,
-    SignOnProvider
+    APP_PROVIDERS
   ]
 })
 export class AppModule {

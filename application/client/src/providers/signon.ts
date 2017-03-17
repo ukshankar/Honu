@@ -12,7 +12,7 @@ import {AppConfig} from '../config/appconfig';
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class SignOn {
+export class SignOnProvider {
 
   constructor(public http: Http, public appConfig: AppConfig) {
     console.log('Hello Home Provider');

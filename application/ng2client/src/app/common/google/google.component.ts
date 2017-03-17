@@ -1,5 +1,7 @@
 import {Component, AfterViewInit, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
 
+
+
 export class GoogleSignInSuccess {
   public googleUser: gapi.auth2.GoogleUser;
 
@@ -40,7 +42,7 @@ export class GoogleSignInComponent implements AfterViewInit {
 
   @Input() set height(value: string) {
     this._height = Number(value);
-    gapi.load('', '');
+    gapi.load('', function(){});
   }
 
   private _longTitle: boolean;
