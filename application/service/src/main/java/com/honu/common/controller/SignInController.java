@@ -39,13 +39,13 @@ public class SignInController {
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody User signIn(@RequestBody User user) {
 
-		try {
-			verifyToken(user.getGoogleToken());
-		} catch (GeneralSecurityException e) {
-			throw new RuntimeException("user not valid");
-		} catch (IOException e) {
-			throw new RuntimeException("user not valid");
-		}
+		//try {
+		//	verifyToken(user.getGoogleToken());
+		//} catch (GeneralSecurityException e) {
+		//	throw new RuntimeException("user not valid");
+	//	} catch (IOException e) {
+	//		throw new RuntimeException("user not valid");
+	//	}
 		System.out.println("Hello");
 		user.setFirstName("Hello");
 
