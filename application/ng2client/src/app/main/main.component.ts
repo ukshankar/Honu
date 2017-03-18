@@ -6,9 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AppState } from '../app.service';
 
 @Component({
-  selector: 'about',
-  styles: [`
-  `],
+  selector: 'user-home',
   template:require('./main.component.html')
 })
 export class MainComponent implements OnInit {
@@ -17,7 +15,9 @@ export class MainComponent implements OnInit {
   constructor(
     public appState: AppState
   ) {
-     this.name=appState.get("name");
+
+     this.name= this.appState.get("name");
+
   }
 
   public ngOnInit() {

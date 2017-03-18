@@ -31,6 +31,9 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
+import { SignOnProvider } from './signon/signon.provider';
+import {AppConfig} from './config'
+
 
 
 import '../styles/styles.scss';
@@ -39,7 +42,8 @@ import '../styles/headings.css';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  AppConfig
 ];
 
 type StoreType = {
