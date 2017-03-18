@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.honu.common.model.Request;
+import com.honu.common.model.Skill;
 import com.honu.common.model.User;
 import com.honu.common.service.UserService;
 
@@ -28,11 +30,11 @@ public class UsersController {
 
 	}
 	
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST,headers="Accept=application/json")
+	@RequestMapping(value = "/skills", method = RequestMethod.POST,headers="Accept=application/json")
 	public @ResponseBody
-	void authenticateUser(@RequestBody User user) {
+	void userSkills(@RequestBody User user, Request honuReq) {
 	
-		userSer.authenticateUser(user);
+		userSer.addSkills(user, honuReq);
 
 	}
 	

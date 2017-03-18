@@ -4,6 +4,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import com.honu.common.model.Request;
 import com.honu.common.model.User;
 @Repository("userDao")
 public class UserDaoImpl extends AbstractDao implements UserDao{
@@ -29,6 +30,12 @@ public class UserDaoImpl extends AbstractDao implements UserDao{
     @Override
     public void update(User stock) {
     	// TODO Auto-generated method stub
+    	
+    }
+    
+    @Override
+    public void addSkill(User user, Request skill) {
+     persist(skill);
     	
     }
 }

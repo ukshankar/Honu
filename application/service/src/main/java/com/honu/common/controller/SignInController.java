@@ -125,6 +125,7 @@ public class SignInController {
 
 			} else {
 			  System.out.println("Invalid ID token.");
+			  throw new RuntimeException("Invalid Token");
 			}
 	}
 	
