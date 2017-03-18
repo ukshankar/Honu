@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public void addSkills(User user, Request skills) {
+		skills.setUserId(user.getId());
 	 dao.addSkill(user, skills);
 		
 	}

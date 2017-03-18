@@ -79,7 +79,7 @@ public class User implements UserDetails {
 		this.password = password;
 	}
 
-	@Column(name = "username", unique = true)
+	@Column(name = "username", unique = true , nullable=false)
 
 	public String getEmail() {
 		return email;

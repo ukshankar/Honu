@@ -1,6 +1,7 @@
 package com.honu.common.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.honu.common.model.Request;
-import com.honu.common.model.Skill;
 import com.honu.common.model.User;
 import com.honu.common.service.UserService;
 
@@ -32,10 +32,11 @@ public class UsersController {
 	
 	@RequestMapping(value = "/skills", method = RequestMethod.POST,headers="Accept=application/json")
 	public @ResponseBody
-	void userSkills(@RequestBody User user, Request honuReq) {
-	
-		userSer.addSkills(user, honuReq);
+Request userSkills(@RequestBody Request r) {
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		userSer.addSkills(user, r);
 
+		return r;
 	}
 	
 	@RequestMapping(value={"{email}"},method = RequestMethod.GET,headers="Accept=application/json")
