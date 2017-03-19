@@ -21,13 +21,13 @@ import { SignOnProvider } from './signon.provider';
 
 })
 
-
 export class SignOnComponent implements OnInit {
 
   public localState: any;
 
   public myLongTitle="true";
   public myTheme="dark";
+  public myWidth="223";
 
   constructor(public route: Router, public appState: AppState, public signOnProvider: SignOnProvider) {
     console.log('Test is the best');
@@ -41,17 +41,15 @@ export class SignOnComponent implements OnInit {
 
   onGoogleSignInSuccess(event: GoogleSignInSuccess) {
     let googleUser: gapi.auth2.GoogleUser = event.googleUser;
-    let id: string = googleUser.getId();
     let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
-    console.log('ID: ' +
-      profile
-        .getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
-    this.appState.set("name",profile.getName())
-    this.signOnProvider.signIn({"googleToken":googleUser.getAuthResponse().id_token,"email":profile.getEmail(),"password":""})
+    this.appState.set("name",profile.getName());
+    let usrObj = {"googleToken":googleUser.getAuthResponse().id_token,"email":profile.getEmail(),"password":""};
+    this.signOnProvider.signIn(usrObj)
       .subscribe(user => {
         this.appState.set("email",profile.getEmail());
         console.log(user);
+        localStorage.setItem('user', JSON.stringify(usrObj));
         this.route.navigate(['main']);
       })
     

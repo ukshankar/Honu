@@ -33,6 +33,8 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { SignOnProvider } from './signon/signon.provider';
 import {AppConfig} from './config'
+import {AuthGuard} from './common/authguard'
+
 
 
 
@@ -43,7 +45,8 @@ import '../styles/headings.css';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  AppConfig
+  AppConfig,
+  AuthGuard
 ];
 
 type StoreType = {

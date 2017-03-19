@@ -7,6 +7,7 @@ import { AppState } from '../app.service';
 
 @Component({
   selector: 'user-home',
+  styleUrls: [ './main.component.css' ],
   template:require('./main.component.html')
 })
 export class MainComponent implements OnInit {

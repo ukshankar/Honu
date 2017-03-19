@@ -8,6 +8,7 @@ import { AppConfig } from '../config';
 
 @Injectable()
 export class SignOnProvider {
+     public token: string;
 
   constructor(public http: Http, public appConfig: AppConfig) {
     console.log('Hello Home Provider');

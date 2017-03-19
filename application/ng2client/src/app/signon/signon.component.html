@@ -1,8 +1,17 @@
-<div class="w3-container w3-center">
-    <div class="w3-panel"  style="margin-left: 80px;">
-        <google-signin [clientId]="myClientId" [width]="myWidth" [theme]="myTheme" [scope]="myScope" [longTitle]="myLongTitle"
-            (googleSignInSuccess)="onGoogleSignInSuccess($event)"></google-signin>
-    </div>
-    <div class="w3-panel"> <span>Email </span><input type="text" class="w3-text" style="margin-right: 10px; margin-left: 10px; margin-bottom: 10px;"> <button class="w3-btn-block w3-grey w3-round" style="max-width:100px">Submit</button> </div>
+<Header id="home" class="w3-container w3-panel w3-padding-64 w3-center w3-opacity">
+    <h1 id="header">HONU</h1>
+</Header>
+<div class="w3-row w3-padding-8">
+  <div class="w3-col w3-container" style="width:20%"></div>
+  <div class="w3-col w3-container" style="width:60%"><google-signin [clientId]="myClientId" [width]="myWidth" [theme]="myTheme" [scope]="myScope" [longTitle]="myLongTitle"
+            (googleSignInSuccess)="onGoogleSignInSuccess($event)"></google-signin></div>
+  <div class="w3-col w3-container" style="width:20%"></div>
 </div>
-
+<div class="w3-row w3-padding-8">
+  <div class="w3-col w3-container" style="width:20%"></div>
+  <div class="w3-col w3-container" style="width:80%"><input type="text" class="w3-text" style="width: 223px;" placeholder="Email">
+ </div>
+ <div class="w3-row">
+  <div class="w3-col w3-container" style="width:35%"></div>
+  <div class="w3-col w3-container w3-padding-16" style="width:65%"><button class="w3-btn-block w3-grey w3-round" style="max-width:100px">Submit</button>
+ </div>
