@@ -19,8 +19,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 
 public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFilter {
 
-  @Value("${cerberus.token.header}")
-  private String tokenHeader;
+ 
+  private String tokenHeader =  "jwt_header";
 
   @Autowired
   private TokenUtils tokenUtils;
@@ -35,10 +35,12 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
     HttpServletRequest httpRequest = (HttpServletRequest) request;
     String authToken = httpRequest.getHeader(this.tokenHeader);
     String username = this.tokenUtils.getUsernameFromToken(authToken);
-
+    System.out.println(username);
     if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
       UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+      System.out.println(userDetails);
       if (this.tokenUtils.validateToken(authToken, userDetails)) {
+    	  System.out.println("validated");
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
         SecurityContextHolder.getContext().setAuthentication(authentication);

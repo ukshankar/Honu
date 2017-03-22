@@ -55,3 +55,37 @@ CREATE TABLE honuuser (
 
 alter sequence honuuser_honuUserId_seq restart with 10000;
 
+
+create table userskill (
+
+skillid SERIAL8 primary key ,
+honuUserId SERIAL8,
+skillName         VARCHAR(3),
+  skillDetail                VARCHAR(50)
+
+);
+
+
+create table honurequest (
+
+honureqId SERIAL8 primary key ,
+userReqId SERIAL8,
+userId SERIAL8,
+reqType    VARCHAR(50),
+message    VARCHAR(50),
+createdTs 	 timestamp with time zone,
+updatedTs 	 timestamp with time zone
+);
+alter sequence honurequest_honureqId_seq restart with 10000;
+
+create table userevent (
+
+honureqId SERIAL8 ,
+eventId SERIAL8,
+name    VARCHAR(50),
+description    VARCHAR(50),
+eventTime 	 timestamp with time zone,
+eventType varchar(50)
+);
+
+alter sequence userevent_eventId_seq restart with 10000;

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.honu.common.dao.UserDao;
+import com.honu.common.model.Request;
 import com.honu.common.model.User;
 
 @Service("userService")
@@ -33,6 +34,13 @@ public class UserServiceImpl implements UserService{
 		User userFromDb = findUserbyUserName(user.getEmail());
 		return BCrypt.checkpw(user.getPassword(),userFromDb.getPassword());
 				
+		
+	}
+	
+	@Override
+	public void addSkills(User user, Request skills) {
+		skills.setUserId(user.getId());
+	 dao.addSkill(user, skills);
 		
 	}
 }

@@ -39,12 +39,17 @@ public class SignInController {
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody User signIn(@RequestBody User user) {
 
+	
+		System.out.println("ENV"+System.getenv("AUTH"));
+		if(Boolean.valueOf(System.getenv("AUTH")) || (System.getenv("AUTH") == null))  {
+				
 		try {
 			verifyToken(user.getGoogleToken());
 		} catch (GeneralSecurityException e) {
 			throw new RuntimeException("user not valid");
 		} catch (IOException e) {
 			throw new RuntimeException("user not valid");
+		}
 		}
 		System.out.println("Hello");
 		user.setFirstName("Hello");
@@ -125,6 +130,7 @@ public class SignInController {
 
 			} else {
 			  System.out.println("Invalid ID token.");
+			  throw new RuntimeException("Invalid Token");
 			}
 	}
 	
@@ -134,4 +140,5 @@ public class SignInController {
 		return "Hello";
 	}
 
+	
 }

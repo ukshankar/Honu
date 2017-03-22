@@ -1,5 +1,6 @@
 package com.honu.common.dao;
 
+import com.honu.common.model.Request;
 import com.honu.common.model.User;
 
 public interface UserDao {
@@ -11,5 +12,6 @@ public interface UserDao {
 		void update(User stock);
 		void delete(User stock);
 		User findByUserName(String username);
+		void addSkill(User user, Request skill);
 	
 }
