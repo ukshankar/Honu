@@ -7,7 +7,8 @@ export class AuthHttp{
   constructor(private http: Http) {}
 
   createAuthorizationHeader(headers: Headers) {
-    headers.append('Authorization', `Bearer ${localStorage.getItem('user_token')}`); 
+    headers.append('jwt_header', `${localStorage.getItem('user_token')}`); 
+    
   }
 
   get(url) {
