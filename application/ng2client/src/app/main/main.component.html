@@ -17,11 +17,8 @@
     <div class="w3-container w3-quarter"><label>Details About Yourself :</label>
     </div>
     <div class="w3-container w3-half">
-        <textarea class="w3-text" rows="10" style="width: 100%;">Industry:    
-Area of expertise:   
-No. of years experience:    
-Location:    
-How can we help you to find a better job:</textarea>
+        <textarea [ngModel]="userdetails" class="w3-text" rows="10" style="width: 100%;">Industry:    
+</textarea>
     </div>
     <div class="w3-container w3-quarter">
     </div>
@@ -30,7 +27,7 @@ How can we help you to find a better job:</textarea>
     <div class="w3-container w3-quarter">
     </div>
     <div class="w3-container w3-half" style="text-align: right;">
- <button class="w3-btn w3-grey w3-round" >Submit</button>
+ <button class="w3-btn w3-grey w3-round"  (click)="submitDetails()">Submit</button>
     </div>
     <div class="w3-container w3-quarter">
     </div>

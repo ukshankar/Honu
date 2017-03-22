@@ -5,7 +5,7 @@ import { MainComponent } from './main';
 import { NoContentComponent } from './no-content';
 
 import { DataResolver } from './app.resolver';
-import { AuthGuard } from './common/authguard';
+import { AuthGuard } from './common/auth';
 
 export const ROUTES: Routes = [
   { path: '',      component: HomeComponent },

@@ -49,7 +49,8 @@ export class SignOnComponent implements OnInit {
       .subscribe(user => {
         this.appState.set("email",profile.getEmail());
         console.log(user);
-        localStorage.setItem('user', JSON.stringify(usrObj));
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user_token', user.jwtToken);
         this.route.navigate(['main']);
       })
     
