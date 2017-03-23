@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.honu.common.model.Event;
+import com.honu.common.model.HonuUserAuthority;
 import com.honu.common.model.Request;
 import com.honu.common.model.RequestWrapperForEvents;
 import com.honu.common.model.User;
@@ -24,13 +25,14 @@ public class AppMain {
 		context.scan("com.honu"); 
 		context.refresh();
 		UserService ser = (UserService)context.getBean("userService");
-		System.out.println(ser.findUserbyUserName("something@some.com"));
+		System.out.println(ser.findUserbyUserName("test0.15457526714715408"));
 		System.out.println(ser);
 		User user = new User();
 		user.setEmail("test"+Math.random());
 		user.setPassword("adfd");
 		user.setFirstName("ff");
 		user.setLastName("dafr");
+		user.addUserRole(new HonuUserAuthority("Visitor"));
 		ser.save(user);
 		Request r = new Request();
 		r.setUserId(user.getId());
