@@ -10,6 +10,7 @@ echo $M2_HOME
 echo $M2
 echo $PATH
 
+cp ../service/target/HonuService.war .
 mvn clean package -DskipTests=true
 
 git add .
