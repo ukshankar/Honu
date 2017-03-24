@@ -18,6 +18,8 @@ import {
 import { SignOnComponent } from './signon';
 import { GoogleSignInComponent } from './common/google';
 import { MainComponent } from './main';
+import { RegConfComponent } from './regconf';
+
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -69,7 +71,8 @@ type StoreType = {
     SignOnComponent,
     GoogleSignInComponent,
     MainComponent,    
-    NoContentComponent
+    NoContentComponent,
+    RegConfComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

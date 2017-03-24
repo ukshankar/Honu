@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AppConfig } from '../config';
 import { AuthHttp } from '../common/auth';
 import { User } from '../common/model/user'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'user-home',
@@ -20,7 +21,7 @@ export class MainComponent implements OnInit {
 "Location:  "+ 
 "How can we help you to find a better job:";
   constructor(
-    public appConfig: AppConfig, public authHttp: AuthHttp
+    public appConfig: AppConfig, public authHttp: AuthHttp,public route: Router, 
   ) {
 
      this.name= JSON.parse(localStorage.getItem("user")).firstName;
@@ -43,6 +44,7 @@ export class MainComponent implements OnInit {
     this.authHttp.post(this.appConfig.serverHost+"/service/users/skills",obj).subscribe(
       res => {
         console.log(res);
+         this.route.navigate(['regconf']);
       }
     );
   }

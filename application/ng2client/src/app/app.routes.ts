@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home';
 import { SignOnComponent } from './signon';
 import { MainComponent } from './main';
+import { RegConfComponent } from './regconf';
 import { NoContentComponent } from './no-content';
 
 import { DataResolver } from './app.resolver';
@@ -12,6 +13,7 @@ export const ROUTES: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'signon', component: SignOnComponent },
   { path: 'main', component: MainComponent, canActivate: [AuthGuard]},
+  { path: 'regconf', component: RegConfComponent, canActivate: [AuthGuard]},
   { path: 'detail', loadChildren: './+detail#DetailModule'},
   { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
   { path: '**',    component: NoContentComponent },
