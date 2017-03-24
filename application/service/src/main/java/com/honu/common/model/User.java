@@ -1,18 +1,26 @@
 package com.honu.common.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
@@ -33,7 +41,8 @@ public class User implements UserDetails {
 	private Date lastPasswordReset;
 	private Integer reputation = Reputation.GOOGLE;
 
-	private Collection<? extends GrantedAuthority> authorities;
+	private Collection<? extends GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+	private Set<HonuUserAuthority> userRole = new HashSet<HonuUserAuthority>(0);
 	private Boolean accountNonExpired = true;
 
 	private Boolean accountNonLocked = true;
@@ -124,6 +133,20 @@ public class User implements UserDetails {
 		this.authorities = authorities;
 	}
 
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	  @JoinColumn(name="honuuserid")
+	public Set<HonuUserAuthority> getUserRole() {
+		return this.userRole;
+	}
+
+	public void setUserRole(Set<HonuUserAuthority> userRole) {
+		this.userRole = userRole;
+	}
+	
+	public void addUserRole(HonuUserAuthority role1) {
+		this.userRole.add(role1);
+	}
+	
 	@Transient
 	public Boolean getAccountNonExpired() {
 		return accountNonExpired;
@@ -165,6 +188,8 @@ public class User implements UserDetails {
 		this.lastPasswordReset = lastPasswordReset;
 	}
 
+	
+	
 	@Transient
 	@Override
 	public boolean isAccountNonExpired() {

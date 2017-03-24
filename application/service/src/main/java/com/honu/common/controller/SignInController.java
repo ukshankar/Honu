@@ -21,6 +21,7 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.json.webtoken.JsonWebToken.Payload;
 import com.honu.common.configuration.TokenUtils;
+import com.honu.common.model.HonuUserAuthority;
 import com.honu.common.model.User;
 import com.honu.common.service.UserService;
 
@@ -60,6 +61,7 @@ public class SignInController {
 		User honuUser = userSer.findUserbyUserName(user.getUsername());
 
 		if (honuUser == null) {
+			user.addUserRole(new HonuUserAuthority("VISITOR"));
 			userSer.save(user);
 		}
 		Device newDevice = new Device() {

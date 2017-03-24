@@ -71,8 +71,8 @@ create table honurequest (
 honureqId SERIAL8 primary key ,
 userReqId SERIAL8,
 userId SERIAL8,
-reqType    VARCHAR(50),
-message    VARCHAR(50),
+reqType    VARCHAR(500),
+message    VARCHAR(500),
 createdTs 	 timestamp with time zone,
 updatedTs 	 timestamp with time zone
 );
@@ -82,10 +82,18 @@ create table userevent (
 
 honureqId SERIAL8 ,
 eventId SERIAL8,
-name    VARCHAR(50),
-description    VARCHAR(50),
+name    VARCHAR(500),
+description    VARCHAR(500),
 eventTime 	 timestamp with time zone,
-eventType varchar(50)
+eventType varchar(500)
 );
 
 alter sequence userevent_eventId_seq restart with 10000;
+
+create table user_roles (
+user_role_id SERIAL8 ,
+role    VARCHAR(500),
+honuuserid    SERIAL8
+);
+
+alter sequence user_roles_user_role_id_seq restart with 10000;
