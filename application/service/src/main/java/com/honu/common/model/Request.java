@@ -107,6 +107,12 @@ public class Request {
 	public void setEventLst(List<Event> eventLst) {
 		this.eventLst = eventLst;
 	}
+
+	@Override
+	public String toString() {
+		return " Thanks for using CareerRail , Your Request detail are [id=" + id + ", reqId=" + reqId + ", userId=" + userId + ", type=" + type + ", message="
+				+ message + ", createdTs=" + createdTs + ", updatedTs=" + updatedTs + ", eventLst=" + eventLst + "]";
+	}
 	
 			
 	
