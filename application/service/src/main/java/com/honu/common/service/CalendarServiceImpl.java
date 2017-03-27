@@ -4,12 +4,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringBufferInputStream;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
+
+import org.springframework.stereotype.Service;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -32,8 +35,8 @@ import com.google.api.services.calendar.model.Event.Reminders;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
 
-
-public class CalendarServiceImpl {
+@Service
+public class CalendarServiceImpl implements CalendarService{
     /** Application name. */
     private static final String APPLICATION_NAME =
         "Google Calendar API Java Quickstart";
@@ -67,7 +70,9 @@ public class CalendarServiceImpl {
         try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
             DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
-             credential = GoogleCredential.fromStream(new FileInputStream("c:/temp/HonuCareers-d50774e811d4.json"))
+            //"c:/temp/HonuCareers-d50774e811d4.json"
+            StringBufferInputStream ins = new StringBufferInputStream(System.getenv("json"));
+             credential = GoogleCredential.fromStream(ins)
         		    .createScoped(Collections.singleton(CalendarScopes.CALENDAR
         		    	));
               service = getCalendarService();
@@ -99,7 +104,7 @@ public class CalendarServiceImpl {
     public static void main(String[] args) throws IOException {
      
 
-       
+       CalendarService ser = new CalendarServiceImpl();
         
      
       //  insertNewEvent();
@@ -112,7 +117,7 @@ public class CalendarServiceImpl {
         
    
         
-       List<Event> items =  getAllEvents(service);
+       List<Event> items =  ser.getAllEvents();
        if (items.size() == 0) {
            System.out.println("No upcoming events found.");
        } else {
@@ -128,7 +133,7 @@ public class CalendarServiceImpl {
        }
     }
 
-	private static void insertNewEvent() throws IOException {
+	private  void insertNewEvent() throws IOException {
 		Calendar calee =Calendar.getInstance();
         		calee.add(Calendar.DAY_OF_MONTH, 2);
         Date oneHourFromNow = calee.getTime();
@@ -144,7 +149,7 @@ public class CalendarServiceImpl {
         service.events().insert("primary", event1).execute();
 	}
 
-	private static List<Event> getAllEvents(com.google.api.services.calendar.Calendar service) throws IOException {
+	public  List<Event> getAllEvents() throws IOException {
 		System.out.println(service.getBaseUrl());
         // List the next 10 events from the primary calendar.
         DateTime now = new DateTime(System.currentTimeMillis());
