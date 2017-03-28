@@ -14,9 +14,10 @@ import { GoogleSignInComponent } from './components/google';
 import { SignonService } from './services/signon';
 import { HttpService } from './services/utils';
 import { ConfigService } from './services/config';
+import { AuthGuard } from './guards';
 
 const APP_PROVIDERS = [
-  SignonService, HttpService, ConfigService
+  SignonService, HttpService, ConfigService, AuthGuard
 ];
 
 

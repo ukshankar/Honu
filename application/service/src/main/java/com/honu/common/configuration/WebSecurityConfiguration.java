@@ -1,5 +1,7 @@
 package com.honu.common.configuration;
 
+import javax.servlet.Filter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.honu.common.config.CorsFilterX;
 import com.honu.common.service.SecurityService;
 
 
@@ -55,7 +58,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
   public AuthenticationManager authenticationManagerBean() throws Exception {
     return super.authenticationManagerBean();
   }
-
+  
+  @Bean
+  public CorsFilterX corsFilter(){
+	  return new CorsFilterX();
+  }
+  
   @Bean
   public AuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
     AuthenticationTokenFilter authenticationTokenFilter = new AuthenticationTokenFilter();
@@ -81,9 +89,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
       .authorizeRequests()
         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-        .antMatchers("/service/signon/**").permitAll()
+        .antMatchers("/services/signon/**").permitAll()
         .antMatchers("/*").permitAll()
-        .antMatchers("/service/appointments/*").hasAuthority("VISITOR")
+        .antMatchers("/services/appointments/*").hasAuthority("VISITOR")
         .anyRequest().authenticated();
 
     // Custom JWT based authentication

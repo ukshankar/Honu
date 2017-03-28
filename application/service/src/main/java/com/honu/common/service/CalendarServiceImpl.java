@@ -80,7 +80,7 @@ public class CalendarServiceImpl implements CalendarService{
               //oneTimeSetup(service);
         } catch (Throwable t) {
             t.printStackTrace();
-            System.exit(1);
+            //System.exit(1);
         }
     }
 
