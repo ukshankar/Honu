@@ -117,7 +117,7 @@ public class SignInController {
 			// (Receive idTokenString by HTTPS POST)
 
 			GoogleIdToken idToken = verifier.verify(idTokenString);
-			System.out.println(idTokenString);
+			System.out.println("Just for debugging "+idTokenString);
 			if (idToken != null) {
 			  Payload payload = idToken.getPayload(); 
 
