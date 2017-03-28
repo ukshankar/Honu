@@ -11,9 +11,9 @@ call ant
 
 cd ../server 
 
-
+git add .
 CALL mvn clean package -DskipTests=true
 
-git add .
+
 git commit -m "msg"
 git push heroku master
