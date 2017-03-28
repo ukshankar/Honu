@@ -14,6 +14,8 @@ cd ../client
 
 ng build --env=prod
 
+cp -r dist/* ../service/src/main/webapp
+
 cd ../service
 
 mvn -DENV=server clean install flyway:migrate jetty:run
