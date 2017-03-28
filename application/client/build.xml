@@ -1,0 +1,7 @@
+<project name="justcopy" default="copy">
+<target name="copy">
+ <copy todir="../service/src/main/webapp">
+    <fileset dir="dist"/>
+  </copy>
+</target>
+</project>

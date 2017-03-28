@@ -1,0 +1,6 @@
+<project name="justcopy" default="copy">
+<target name="copy">
+<copy file="../service/target/HonuService.war" todir="../server"/>
+
+</target>
+</project>
