@@ -1,0 +1,7 @@
+{
+  "dev":{
+    "service": {
+        "host":"http://localhost:8888"
+    }
+  }
+}

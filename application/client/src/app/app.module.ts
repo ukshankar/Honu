@@ -1,36 +1,41 @@
-import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { SignOnPage } from '../pages/signon/signon';
-import { HomePage } from '../pages/home/home';
-import { UserHomePage } from '../pages/userhome/userhome';
-import { LoginComponent } from '../pages/signon/logon';
-import { SignOn } from '../providers/signon';
-import {AppConfig} from '../config/appconfig';
-import {GoogleSignIn} from '../component/google';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './app.component';
+import { SignonComponent } from './components/signon';
+import { HomeComponent } from './components/home';
+import { MainComponent } from './components/main';
+import { RegconfComponent } from './components/regconf';
+import { RouterModule, PreloadAllModules } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { GoogleSignInComponent } from './components/google';
+import { SignonService } from './services/signon';
+import { HttpService } from './services/utils';
+import { ConfigService } from './services/config';
+
+const APP_PROVIDERS = [
+  SignonService, HttpService, ConfigService
+];
+
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    SignOnPage,
-    UserHomePage,
-    LoginComponent,
-    GoogleSignIn
+    AppComponent,
+    SignonComponent,
+    HomeComponent,
+    MainComponent,
+    RegconfComponent,
+    GoogleSignInComponent
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    SignOnPage,
-    UserHomePage,
-    LoginComponent,
-    GoogleSignIn
-  ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},SignOn,AppConfig]
+  providers: [ APP_PROVIDERS ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
