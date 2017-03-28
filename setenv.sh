@@ -10,6 +10,16 @@ echo $M2_HOME
 echo $M2
 echo $PATH
 
+cd ../client
+
+ng build --env=prod
+
+cd ../service
+
+mvn -DENV=server clean install flyway:migrate jetty:run
+
+cd ../server 
+
 cp ../service/target/HonuService.war .
 mvn clean package -DskipTests=true
 
