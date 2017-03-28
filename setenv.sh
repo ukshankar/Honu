@@ -18,7 +18,7 @@ cp -r dist/* ../service/src/main/webapp
 
 cd ../service
 
-mvn -DENV=server clean install flyway:migrate jetty:run
+mvn -DENV=server clean install flyway:migrate
 
 cd ../server 
 
