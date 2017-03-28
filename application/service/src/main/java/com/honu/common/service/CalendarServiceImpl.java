@@ -1,9 +1,6 @@
 package com.honu.common.service;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.StringBufferInputStream;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -12,13 +9,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
-import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
@@ -34,8 +29,10 @@ import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.Event.Reminders;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
+import com.honu.common.dao.CalendarDao;
 
-@Service
+@Service("calendarService")
+
 public class CalendarServiceImpl implements CalendarService{
     /** Application name. */
     private static final String APPLICATION_NAME =
@@ -66,6 +63,8 @@ public class CalendarServiceImpl implements CalendarService{
     private static final List<String> SCOPES =
         Arrays.asList(CalendarScopes.CALENDAR);
 
+    @Autowired
+    public CalendarDao dao;
     static {
         try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
@@ -151,17 +150,7 @@ public class CalendarServiceImpl implements CalendarService{
 	}
 
 	public  List<Event> getAllEvents() throws IOException {
-		System.out.println(service.getBaseUrl());
-        // List the next 10 events from the primary calendar.
-        DateTime now = new DateTime(System.currentTimeMillis());
-        Events events = service.events().list("primary")
-            .setMaxResults(10)
-            .setTimeMin(now)
-            .setOrderBy("startTime")
-            .setSingleEvents(true)
-            .execute();
-        List<Event> items = events.getItems();
-       return items;
+		return dao.getAllEvents(service);
 	}
     
     public  static void oneTimeSetup( com.google.api.services.calendar.Calendar service) throws IOException {

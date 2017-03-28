@@ -649,7 +649,7 @@ exports = module.exports = __webpack_require__(14)();
 
 
 // module
-exports.push([module.i, "nav {\n  margin-top: 16px;\n}\n\nnav a {\n  background-color: #00838F;\n  color: white;\n  padding: 8px 16px;\n  margin: 8px;\n  vertical-align: middle;\n  line-height: 1.25;\n  text-align: center;\n  text-decoration: none;\n  border-radius: 4px;\n}\n\n", ""]);
+exports.push([module.i, "nav {\r\n  margin-top: 16px;\r\n}\r\n\r\nnav a {\r\n  background-color: #00838F;\r\n  color: white;\r\n  padding: 8px 16px;\r\n  margin: 8px;\r\n  vertical-align: middle;\r\n  line-height: 1.25;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  border-radius: 4px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -716,35 +716,35 @@ module.exports = module.exports.toString();
 /***/ 171:
 /***/ (function(module, exports) {
 
-module.exports = "\n<main>\n    <router-outlet></router-outlet>\n</main>\n<footer class=\"w3-container w3-padding-64 w3-center\">\n    <p>&copy;CareerRail</p>\n</footer>"
+module.exports = "\r\n<main>\r\n    <router-outlet></router-outlet>\r\n</main>\r\n<footer class=\"w3-container w3-padding-64 w3-center\">\r\n    <p>&copy;CareerRail</p>\r\n</footer>"
 
 /***/ }),
 
 /***/ 172:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\n    <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-content\" style=\"max-width:1500px\">\n  <!-- Header -->\n  <div class=\"w3-container w3-center\">\n    <div class=\"w3-panel\"> <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\" [routerLink]=\" ['/signon'] \">Resume & Cover Letter</button>      </div>\n    <div class=\"w3-panel\"> <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Mock Interview</button> </div>\n    <div class=\"w3-panel\">\n      <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Career Advice</button> </div>\n    <div class=\"w3-panel\">\n      <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Coach & Mentor</button> </div>\n  </div>\n  <!-- End Page Content -->\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\r\n    <h1 id=\"header\">HONU</h1>\r\n</Header>\r\n<div class=\"w3-content\" style=\"max-width:1500px\">\r\n  <!-- Header -->\r\n  <div class=\"w3-container w3-center\">\r\n    <div class=\"w3-panel\"> <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\" [routerLink]=\" ['/signon'] \">Resume & Cover Letter</button>      </div>\r\n    <div class=\"w3-panel\"> <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Mock Interview</button> </div>\r\n    <div class=\"w3-panel\">\r\n      <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Career Advice</button> </div>\r\n    <div class=\"w3-panel\">\r\n      <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Coach & Mentor</button> </div>\r\n  </div>\r\n  <!-- End Page Content -->\r\n</div>"
 
 /***/ }),
 
 /***/ 173:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Hi {{name}}\n  </div>\n</div>\n\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Thank you for your interest\n  </div>\n</div>\n\n\n\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Details About Yourself :</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <textarea [(ngModel)]=\"userdetails\" class=\"w3-text\" rows=\"10\" style=\"width: 100%;\">Industry:    \n</textarea>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\">\n  <div class=\"w3-container w3-quarter\">\n  </div>\n  <div class=\"w3-container w3-half\" style=\"text-align: right;\">\n    <button class=\"w3-btn w3-grey w3-round\" (click)=\"submitDetails()\">Submit</button>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\r\n  <h1 id=\"header\">HONU</h1>\r\n</Header>\r\n<div class=\"w3-row\">\r\n  <div class=\"w3-container\">Hi {{name}}\r\n  </div>\r\n</div>\r\n\r\n<div class=\"w3-row\">\r\n  <div class=\"w3-container\">Thank you for your interest\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\r\n  <div class=\"w3-container w3-quarter\"><label>Details About Yourself :</label>\r\n  </div>\r\n  <div class=\"w3-container w3-half\">\r\n    <textarea [(ngModel)]=\"userdetails\" class=\"w3-text\" rows=\"10\" style=\"width: 100%;\">Industry:    \r\n</textarea>\r\n  </div>\r\n  <div class=\"w3-container w3-quarter\">\r\n  </div>\r\n</div>\r\n<div class=\"w3-row\">\r\n  <div class=\"w3-container w3-quarter\">\r\n  </div>\r\n  <div class=\"w3-container w3-half\" style=\"text-align: right;\">\r\n    <button class=\"w3-btn w3-grey w3-round\" (click)=\"submitDetails()\">Submit</button>\r\n  </div>\r\n  <div class=\"w3-container w3-quarter\">\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 174:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\n    <h1 id=\"header\">HONU</h1>\n</Header>\n\n\n<div class=\"w3-row\">\n    <div class=\"w3-container\">Thank you {{name}} !!! for your interest. Will get back to you shortly\n    </div>\n</div>\n\n<div class=\"w3-row w3-center\">\n    <div class=\"w3-container\"> <button class=\"w3-btn w3-grey w3-round\" routerLink=\"/home\">Home Page</button>\n    </div>\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\r\n    <h1 id=\"header\">HONU</h1>\r\n</Header>\r\n\r\n\r\n<div class=\"w3-row\">\r\n    <div class=\"w3-container\">Thank you {{name}} !!! for your interest. Will get back to you shortly\r\n    </div>\r\n</div>\r\n\r\n<div class=\"w3-row w3-center\">\r\n    <div class=\"w3-container\"> <button class=\"w3-btn w3-grey w3-round\" routerLink=\"/home\">Home Page</button>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 175:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row w3-padding-8\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\" style=\"width:60%\">\n    <google-signin [clientId]=\"myClientId\" [width]=\"myWidth\" [theme]=\"myTheme\" [scope]=\"myScope\" [longTitle]=\"myLongTitle\"\n      (googleSignInSuccess)=\"onGoogleSignInSuccess($event)\"></google-signin>\n  </div>\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n</div>\n<div class=\"w3-row w3-padding-8\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\" style=\"width:80%\"><input type=\"text\" class=\"w3-text\" style=\"width: 223px;\" placeholder=\"Email\">\n  </div>\n  <div class=\"w3-row\">\n    <div class=\"w3-col w3-container\" style=\"width:35%\"></div>\n    <div class=\"w3-col w3-container w3-padding-16\" style=\"width:65%\"><button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:100px\">Submit</button>\n    </div>\n  </div>\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\r\n  <h1 id=\"header\">HONU</h1>\r\n</Header>\r\n<div class=\"w3-row w3-padding-8\">\r\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\r\n  <div class=\"w3-col w3-container\" style=\"width:60%\">\r\n    <google-signin [clientId]=\"myClientId\" [width]=\"myWidth\" [theme]=\"myTheme\" [scope]=\"myScope\" [longTitle]=\"myLongTitle\"\r\n      (googleSignInSuccess)=\"onGoogleSignInSuccess($event)\"></google-signin>\r\n  </div>\r\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\r\n</div>\r\n<div class=\"w3-row w3-padding-8\">\r\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\r\n  <div class=\"w3-col w3-container\" style=\"width:80%\"><input type=\"text\" class=\"w3-text\" style=\"width: 223px;\" placeholder=\"Email\">\r\n  </div>\r\n  <div class=\"w3-row\">\r\n    <div class=\"w3-col w3-container\" style=\"width:35%\"></div>\r\n    <div class=\"w3-col w3-container w3-padding-16\" style=\"width:65%\"><button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:100px\">Submit</button>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 

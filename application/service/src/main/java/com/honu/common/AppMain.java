@@ -1,22 +1,24 @@
 package com.honu.common;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.honu.common.model.Event;
 import com.honu.common.model.HonuUserAuthority;
 import com.honu.common.model.Request;
 import com.honu.common.model.RequestWrapperForEvents;
 import com.honu.common.model.User;
+import com.honu.common.service.CalendarService;
 import com.honu.common.service.UserService;
-
+@EnableCaching
 public class AppMain {
 
-	public static void main(String[] args) throws JsonProcessingException {
+	public static void main(String[] args) throws IOException {
 		System.out.println(System.getenv("AUTH"));
 		if(Boolean.valueOf(System.getenv("AUTH")) || (System.getenv("AUTH") == null))  {
 			System.out.println("Hello");
@@ -60,5 +62,11 @@ public class AppMain {
 		re.setRequest(r);
 		ObjectMapper mapper = new ObjectMapper();
 		System.out.println(mapper.writeValueAsString(re));
+		
+		CalendarService serCal = (CalendarService)context.getBean("calendarService");
+		serCal.getAllEvents();
+		System.out.println("Calling again");
+		serCal.getAllEvents();
+		
 	}
 }
