@@ -72,6 +72,7 @@ public class CalendarServiceImpl implements CalendarService{
             DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
             //"c:/temp/HonuCareers-d50774e811d4.json"
             StringBufferInputStream ins = new StringBufferInputStream(System.getenv("json"));
+            System.out.println("Here "+System.getenv("json"));
              credential = GoogleCredential.fromStream(ins)
         		    .createScoped(Collections.singleton(CalendarScopes.CALENDAR
         		    	));

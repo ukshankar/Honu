@@ -117,6 +117,7 @@ public class SignInController {
 			// (Receive idTokenString by HTTPS POST)
 
 			GoogleIdToken idToken = verifier.verify(idTokenString);
+			System.out.println(idTokenString);
 			if (idToken != null) {
 			  Payload payload = idToken.getPayload();
 
@@ -148,8 +149,8 @@ public class SignInController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody String get() {
-		System.out.println("hello");
-		return "Hello";
+		System.out.println("Deployment is good");
+		return "Deployment Success!!";
 	}
 
 	
