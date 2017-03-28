@@ -119,7 +119,7 @@ public class SignInController {
 			GoogleIdToken idToken = verifier.verify(idTokenString);
 			System.out.println(idTokenString);
 			if (idToken != null) {
-			  Payload payload = idToken.getPayload();
+			  Payload payload = idToken.getPayload(); 
 
 			  // Print user identifier
 			  String userId = payload.getSubject();
