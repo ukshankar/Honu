@@ -68,7 +68,7 @@ public class SignInController {
 			user.addUserRole(new HonuUserAuthority("VISITOR"));
 			userSer.save(user);
 			
-			emailSer.sendEmail(user.getEmail(),  "Welcome to CareerRail!!", "Thanks for registering with CareerRail, an awesome initiaive by Honu Inc.");
+			emailSer.sendEmail(user.getEmail(),  "Welcome to CareerRail!!", "Thank you for your interest, we will get back to you shortly.");
 			
 		}
 		Device newDevice = new Device() {
