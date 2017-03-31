@@ -10,30 +10,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-    name = null;
-  public localState: any;
-  userdetails: string = "Area of expertise:"+   
-"No. of years experience:    "+
-"Location:  "+ 
-"How can we help you to find a better job:";
+  name = null;
+  slotList:Array<Object>; 
+  form = {
+      "reqId": 1,
+      "type": null,
+      "aoi": null,
+      "exp":"",
+      "location":null,
+      "message": null,
+      "timeSlot":"",
+      "createdTs": null,
+      "updatedTs": null
+    };
+
+  userdetails: string = "";
 
   constructor( public configService: ConfigService, public httpService: HttpService,public route: Router ) { 
      this.name= JSON.parse(localStorage.getItem("user")).firstName;
   }
 
   ngOnInit() {
+    this.httpService.get(this.configService.serviceHost + "calendar/events")
+                   .subscribe(result => {
+                     this.slotList =result.json()
+                    });
+    
   }
 
   submitDetails() {
 
-    let obj = {
-      "reqId": 123,
-      "type": null,
-      "message": this.userdetails,
-      "createdTs": null,
-      "updatedTs": null
-    };
-    this.httpService.post(this.configService.serviceHost + "users/skills", obj).subscribe(
+
+    this.httpService.post(this.configService.serviceHost + "users/skills", this.form).subscribe(
       res => {
         console.log(res);
         this.route.navigate(['regconf']);

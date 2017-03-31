@@ -14,15 +14,60 @@
 
 
 <div class="w3-row" style="margin-top: 20px;">
-  <div class="w3-container w3-quarter"><label>Details About Yourself :</label>
+  <div class="w3-container w3-quarter"><label>Area of interest:</label>
   </div>
   <div class="w3-container w3-half">
-    <textarea [(ngModel)]="userdetails" class="w3-text" rows="10" style="width: 100%;">Industry:    
-</textarea>
+    <input class="w3-input w3-border" type="text" [(ngModel)]="form.aoi">
   </div>
   <div class="w3-container w3-quarter">
   </div>
 </div>
+<div class="w3-row" style="margin-top: 20px;">
+  <div class="w3-container w3-quarter"><label>No. of years experience:</label>
+  </div>
+  <div class="w3-container w3-half">
+    <select class="w3-select" [(ngModel)]="form.exp">
+  <option value="" disabled selected>Choose years</option>
+  <option value="1">0-2</option>
+  <option value="2">3-5</option>
+  <option value="3">5-10</option>
+  <option value="3">>10</option>
+</select>
+  </div>
+  <div class="w3-container w3-quarter">
+  </div>
+</div>
+<div class="w3-row" style="margin-top: 20px;">
+  <div class="w3-container w3-quarter"><label>Location</label>
+  </div>
+  <div class="w3-container w3-half">
+    <input class="w3-input w3-border" type="text" [(ngModel)]="form.location">
+  </div>
+  <div class="w3-container w3-quarter">
+  </div>
+</div>
+<div class="w3-row" style="margin-top: 20px;">
+  <div class="w3-container w3-quarter"><label>Details about yourself:</label>
+  </div>
+  <div class="w3-container w3-half">
+    <textarea [(ngModel)]="form.message" class="w3-text" rows="10" style="width: 100%;"></textarea>
+  </div>
+  <div class="w3-container w3-quarter">
+  </div>
+</div>
+<div class="w3-row" style="margin-top: 20px;">
+  <div class="w3-container w3-quarter"><label>Available Timeslot:</label>
+  </div>
+  <div class="w3-container w3-half">
+<select class="w3-select" [(ngModel)]="form.timeSlot">
+    <option value="" disabled selected>Choose your timeslot</option>
+    <option *ngFor="let slot of slotList" [ngValue]="slot.id">{{slot.start.dateTime.value | date: 'medium'}} - {{slot.end.dateTime.value | date: 'shortTime'}}</option>
+</select>
+  </div>
+  <div class="w3-container w3-quarter">
+  </div>
+</div>
+<div class="w3-padding-small"></div>
 <div class="w3-row">
   <div class="w3-container w3-quarter">
   </div>

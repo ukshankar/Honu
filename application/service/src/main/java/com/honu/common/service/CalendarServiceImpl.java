@@ -1,10 +1,9 @@
 package com.honu.common.service;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.StringBufferInputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
@@ -14,11 +13,6 @@ import java.util.TimeZone;
 
 import org.springframework.stereotype.Service;
 
-import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
-import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
@@ -71,8 +65,8 @@ public class CalendarServiceImpl implements CalendarService{
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
             DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
             //"c:/temp/HonuCareers-d50774e811d4.json"
-            StringBufferInputStream ins = new StringBufferInputStream(System.getenv("json"));
-             credential = GoogleCredential.fromStream(ins)
+             credential = GoogleCredential.fromStream(CalendarServiceImpl.class.getClassLoader()
+                     .getResourceAsStream("cal.json"))
         		    .createScoped(Collections.singleton(CalendarScopes.CALENDAR
         		    	));
               service = getCalendarService();

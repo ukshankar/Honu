@@ -388,24 +388,30 @@ var MainComponent = (function () {
         this.httpService = httpService;
         this.route = route;
         this.name = null;
-        this.userdetails = "Area of expertise:" +
-            "No. of years experience:    " +
-            "Location:  " +
-            "How can we help you to find a better job:";
-        this.name = JSON.parse(localStorage.getItem("user")).firstName;
-    }
-    MainComponent.prototype.ngOnInit = function () {
-    };
-    MainComponent.prototype.submitDetails = function () {
-        var _this = this;
-        var obj = {
-            "reqId": 123,
+        this.form = {
+            "reqId": 1,
             "type": null,
-            "message": this.userdetails,
+            "aoi": null,
+            "exp": "",
+            "location": null,
+            "message": null,
+            "timeSlot": "",
             "createdTs": null,
             "updatedTs": null
         };
-        this.httpService.post(this.configService.serviceHost + "users/skills", obj).subscribe(function (res) {
+        this.userdetails = "";
+        this.name = JSON.parse(localStorage.getItem("user")).firstName;
+    }
+    MainComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.httpService.get(this.configService.serviceHost + "calendar/events")
+            .subscribe(function (result) {
+            _this.slotList = result.json();
+        });
+    };
+    MainComponent.prototype.submitDetails = function () {
+        var _this = this;
+        this.httpService.post(this.configService.serviceHost + "users/skills", this.form).subscribe(function (res) {
             console.log(res);
             _this.route.navigate(['regconf']);
         });
@@ -730,7 +736,7 @@ module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-6
 /***/ 173:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Hi {{name}}\n  </div>\n</div>\n\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Thank you for your interest\n  </div>\n</div>\n\n\n\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Details About Yourself :</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <textarea [(ngModel)]=\"userdetails\" class=\"w3-text\" rows=\"10\" style=\"width: 100%;\">Industry:    \n</textarea>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\">\n  <div class=\"w3-container w3-quarter\">\n  </div>\n  <div class=\"w3-container w3-half\" style=\"text-align: right;\">\n    <button class=\"w3-btn w3-grey w3-round\" (click)=\"submitDetails()\">Submit</button>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Hi {{name}}\n  </div>\n</div>\n\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Thank you for your interest\n  </div>\n</div>\n\n\n\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Area of interest:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <input class=\"w3-input w3-border\" type=\"text\" [(ngModel)]=\"form.aoi\">\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>No. of years experience:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <select class=\"w3-select\" [(ngModel)]=\"form.exp\">\n  <option value=\"\" disabled selected>Choose years</option>\n  <option value=\"1\">0-2</option>\n  <option value=\"2\">3-5</option>\n  <option value=\"3\">5-10</option>\n  <option value=\"3\">>10</option>\n</select>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Location</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <input class=\"w3-input w3-border\" type=\"text\" [(ngModel)]=\"form.location\">\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Details about yourself:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <textarea [(ngModel)]=\"form.message\" class=\"w3-text\" rows=\"10\" style=\"width: 100%;\"></textarea>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Available Timeslot:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n<select class=\"w3-select\" [(ngModel)]=\"form.timeSlot\">\n    <option value=\"\" disabled selected>Choose your timeslot</option>\n    <option *ngFor=\"let slot of slotList\" [ngValue]=\"slot.id\">{{slot.start.dateTime.value | date: 'medium'}} - {{slot.end.dateTime.value | date: 'shortTime'}}</option>\n</select>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-padding-small\"></div>\n<div class=\"w3-row\">\n  <div class=\"w3-container w3-quarter\">\n  </div>\n  <div class=\"w3-container w3-half\" style=\"text-align: right;\">\n    <button class=\"w3-btn w3-grey w3-round\" (click)=\"submitDetails()\">Submit</button>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n"
 
 /***/ }),
 
