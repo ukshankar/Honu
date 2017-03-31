@@ -1,17 +1,12 @@
 package com.honu.common.service;
 
 import java.io.IOException;
-import java.io.StringBufferInputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
-
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,11 +25,9 @@ import com.google.api.services.calendar.model.AclRule.Scope;
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.Event.Reminders;
 import com.google.api.services.calendar.model.EventDateTime;
-import com.google.api.services.calendar.model.Events;
 import com.honu.common.dao.CalendarDao;
 
 @Service("calendarService")
-
 public class CalendarServiceImpl implements CalendarService{
     /** Application name. */
     private static final String APPLICATION_NAME =
@@ -72,14 +65,10 @@ public class CalendarServiceImpl implements CalendarService{
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
             DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
             //"c:/temp/HonuCareers-d50774e811d4.json"
-<<<<<<< HEAD
+
              credential = GoogleCredential.fromStream(CalendarServiceImpl.class.getClassLoader()
                      .getResourceAsStream("cal.json"))
-=======
-            StringBufferInputStream ins = new StringBufferInputStream(System.getenv("json"));
-            System.out.println("Here "+System.getenv("json"));
-             credential = GoogleCredential.fromStream(ins)
->>>>>>> origin/master
+
         		    .createScoped(Collections.singleton(CalendarScopes.CALENDAR
         		    	));
               service = getCalendarService();
