@@ -68,7 +68,7 @@ public class SignInController {
 			user.addUserRole(new HonuUserAuthority("VISITOR"));
 			userSer.save(user);
 			
-			emailSer.sendEmail(user.getEmail(),  "Welcome to CareerRail!!", "Thanks for registering with CareerRail, an awesome initiaive by Honu Inc.");
+			emailSer.sendEmail(user.getEmail(),  "Welcome to CareerRail!!", "Thank you for your interest, we will get back to you shortly.");
 			
 		}
 		Device newDevice = new Device() {
@@ -117,8 +117,9 @@ public class SignInController {
 			// (Receive idTokenString by HTTPS POST)
 
 			GoogleIdToken idToken = verifier.verify(idTokenString);
+			System.out.println("Just for debugging "+idTokenString);
 			if (idToken != null) {
-			  Payload payload = idToken.getPayload();
+			  Payload payload = idToken.getPayload(); 
 
 			  // Print user identifier
 			  String userId = payload.getSubject();
@@ -148,8 +149,8 @@ public class SignInController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody String get() {
-		System.out.println("hello");
-		return "Hello";
+		System.out.println("Deployment is good");
+		return "Deployment Success!!";
 	}
 
 	

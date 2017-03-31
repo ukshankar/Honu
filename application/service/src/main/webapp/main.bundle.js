@@ -369,6 +369,7 @@ HomeComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_utils__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(33);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainComponent; });
+<<<<<<< HEAD
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -428,6 +429,61 @@ MainComponent = __decorate([
 ], MainComponent);
 
 var _a, _b, _c;
+=======
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var MainComponent = (function () {
+    function MainComponent(configService, httpService, route) {
+        this.configService = configService;
+        this.httpService = httpService;
+        this.route = route;
+        this.name = null;
+        this.userdetails = "Area of expertise:" +
+            "No. of years experience:    " +
+            "Location:  " +
+            "How can we help you to find a better job:";
+        this.name = JSON.parse(localStorage.getItem("user")).firstName;
+    }
+    MainComponent.prototype.ngOnInit = function () {
+    };
+    MainComponent.prototype.submitDetails = function () {
+        var _this = this;
+        var obj = {
+            "reqId": 123,
+            "type": null,
+            "message": this.userdetails,
+            "createdTs": null,
+            "updatedTs": null
+        };
+        this.httpService.post(this.configService.serviceHost + "users/skills", obj).subscribe(function (res) {
+            console.log(res);
+            _this.route.navigate(['regconf']);
+        });
+    };
+    return MainComponent;
+}());
+MainComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        selector: 'app-main',
+        template: __webpack_require__(173),
+        styles: [__webpack_require__(167)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_config__["a" /* ConfigService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_config__["a" /* ConfigService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_utils__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_utils__["a" /* HttpService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _c || Object])
+], MainComponent);
+
+var _a, _b, _c;
+>>>>>>> origin/master
 //# sourceMappingURL=main.component.js.map
 
 /***/ }),
@@ -655,7 +711,7 @@ exports = module.exports = __webpack_require__(14)();
 
 
 // module
-exports.push([module.i, "nav {\n  margin-top: 16px;\n}\n\nnav a {\n  background-color: #00838F;\n  color: white;\n  padding: 8px 16px;\n  margin: 8px;\n  vertical-align: middle;\n  line-height: 1.25;\n  text-align: center;\n  text-decoration: none;\n  border-radius: 4px;\n}\n\n", ""]);
+exports.push([module.i, "nav {\r\n  margin-top: 16px;\r\n}\r\n\r\nnav a {\r\n  background-color: #00838F;\r\n  color: white;\r\n  padding: 8px 16px;\r\n  margin: 8px;\r\n  vertical-align: middle;\r\n  line-height: 1.25;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  border-radius: 4px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -722,35 +778,39 @@ module.exports = module.exports.toString();
 /***/ 171:
 /***/ (function(module, exports) {
 
-module.exports = "\n<main>\n    <router-outlet></router-outlet>\n</main>\n<footer class=\"w3-container w3-padding-64 w3-center\">\n    <p>&copy;CareerRail</p>\n</footer>"
+module.exports = "\r\n<main>\r\n    <router-outlet></router-outlet>\r\n</main>\r\n<footer class=\"w3-container w3-padding-64 w3-center\">\r\n    <p>&copy;CareerRail</p>\r\n</footer>"
 
 /***/ }),
 
 /***/ 172:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\n    <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-content\" style=\"max-width:1500px\">\n  <!-- Header -->\n  <div class=\"w3-container w3-center\">\n    <div class=\"w3-panel\"> <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\" [routerLink]=\" ['/signon'] \">Resume & Cover Letter</button>      </div>\n    <div class=\"w3-panel\"> <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Mock Interview</button> </div>\n    <div class=\"w3-panel\">\n      <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Career Advice</button> </div>\n    <div class=\"w3-panel\">\n      <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Coach & Mentor</button> </div>\n  </div>\n  <!-- End Page Content -->\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\r\n    <h1 id=\"header\">HONU</h1>\r\n</Header>\r\n<div class=\"w3-content\" style=\"max-width:1500px\">\r\n  <!-- Header -->\r\n  <div class=\"w3-container w3-center\">\r\n    <div class=\"w3-panel\"> <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\" [routerLink]=\" ['/signon'] \">Resume & Cover Letter</button>      </div>\r\n    <div class=\"w3-panel\"> <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Mock Interview</button> </div>\r\n    <div class=\"w3-panel\">\r\n      <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Career Advice</button> </div>\r\n    <div class=\"w3-panel\">\r\n      <button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:350px\">Coach & Mentor</button> </div>\r\n  </div>\r\n  <!-- End Page Content -->\r\n</div>"
 
 /***/ }),
 
 /***/ 173:
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Hi {{name}}\n  </div>\n</div>\n\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Thank you for your interest\n  </div>\n</div>\n\n\n\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Area of interest:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <input class=\"w3-input w3-border\" type=\"text\" [(ngModel)]=\"form.aoi\">\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>No. of years experience:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <select class=\"w3-select\" [(ngModel)]=\"form.exp\">\n  <option value=\"\" disabled selected>Choose years</option>\n  <option value=\"1\">0-2</option>\n  <option value=\"2\">3-5</option>\n  <option value=\"3\">5-10</option>\n  <option value=\"3\">>10</option>\n</select>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Location</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <input class=\"w3-input w3-border\" type=\"text\" [(ngModel)]=\"form.location\">\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Details about yourself:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <textarea [(ngModel)]=\"form.message\" class=\"w3-text\" rows=\"10\" style=\"width: 100%;\"></textarea>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Available Timeslot:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n<select class=\"w3-select\" [(ngModel)]=\"form.timeSlot\">\n    <option value=\"\" disabled selected>Choose your timeslot</option>\n    <option *ngFor=\"let slot of slotList\" [ngValue]=\"slot.id\">{{slot.start.dateTime.value | date: 'medium'}} - {{slot.end.dateTime.value | date: 'shortTime'}}</option>\n</select>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-padding-small\"></div>\n<div class=\"w3-row\">\n  <div class=\"w3-container w3-quarter\">\n  </div>\n  <div class=\"w3-container w3-half\" style=\"text-align: right;\">\n    <button class=\"w3-btn w3-grey w3-round\" (click)=\"submitDetails()\">Submit</button>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n"
+=======
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\r\n  <h1 id=\"header\">HONU</h1>\r\n</Header>\r\n<div class=\"w3-row\">\r\n  <div class=\"w3-container\">Hi {{name}}\r\n  </div>\r\n</div>\r\n\r\n<div class=\"w3-row\">\r\n  <div class=\"w3-container\">Thank you for your interest\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\r\n  <div class=\"w3-container w3-quarter\"><label>Details About Yourself :</label>\r\n  </div>\r\n  <div class=\"w3-container w3-half\">\r\n    <textarea [(ngModel)]=\"userdetails\" class=\"w3-text\" rows=\"10\" style=\"width: 100%;\">Industry:    \r\n</textarea>\r\n  </div>\r\n  <div class=\"w3-container w3-quarter\">\r\n  </div>\r\n</div>\r\n<div class=\"w3-row\">\r\n  <div class=\"w3-container w3-quarter\">\r\n  </div>\r\n  <div class=\"w3-container w3-half\" style=\"text-align: right;\">\r\n    <button class=\"w3-btn w3-grey w3-round\" (click)=\"submitDetails()\">Submit</button>\r\n  </div>\r\n  <div class=\"w3-container w3-quarter\">\r\n  </div>\r\n</div>"
+>>>>>>> origin/master
 
 /***/ }),
 
 /***/ 174:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\n    <h1 id=\"header\">HONU</h1>\n</Header>\n\n\n<div class=\"w3-row\">\n    <div class=\"w3-container\">Thank you {{name}} !!! for your interest. Will get back to you shortly\n    </div>\n</div>\n\n<div class=\"w3-row w3-center\">\n    <div class=\"w3-container\"> <button class=\"w3-btn w3-grey w3-round\" routerLink=\"/home\">Home Page</button>\n    </div>\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\r\n    <h1 id=\"header\">HONU</h1>\r\n</Header>\r\n\r\n\r\n<div class=\"w3-row\">\r\n    <div class=\"w3-container\">Thank you {{name}} !!! for your interest. Will get back to you shortly\r\n    </div>\r\n</div>\r\n\r\n<div class=\"w3-row w3-center\">\r\n    <div class=\"w3-container\"> <button class=\"w3-btn w3-grey w3-round\" routerLink=\"/home\">Home Page</button>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 175:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row w3-padding-8\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\" style=\"width:60%\">\n    <google-signin [clientId]=\"myClientId\" [width]=\"myWidth\" [theme]=\"myTheme\" [scope]=\"myScope\" [longTitle]=\"myLongTitle\"\n      (googleSignInSuccess)=\"onGoogleSignInSuccess($event)\"></google-signin>\n  </div>\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n</div>\n<div class=\"w3-row w3-padding-8\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\" style=\"width:80%\"><input type=\"text\" class=\"w3-text\" style=\"width: 223px;\" placeholder=\"Email\">\n  </div>\n  <div class=\"w3-row\">\n    <div class=\"w3-col w3-container\" style=\"width:35%\"></div>\n    <div class=\"w3-col w3-container w3-padding-16\" style=\"width:65%\"><button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:100px\">Submit</button>\n    </div>\n  </div>\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\r\n  <h1 id=\"header\">HONU</h1>\r\n</Header>\r\n<div class=\"w3-row w3-padding-8\">\r\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\r\n  <div class=\"w3-col w3-container\" style=\"width:60%\">\r\n    <google-signin [clientId]=\"myClientId\" [width]=\"myWidth\" [theme]=\"myTheme\" [scope]=\"myScope\" [longTitle]=\"myLongTitle\"\r\n      (googleSignInSuccess)=\"onGoogleSignInSuccess($event)\"></google-signin>\r\n  </div>\r\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\r\n</div>\r\n<div class=\"w3-row w3-padding-8\">\r\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\r\n  <div class=\"w3-col w3-container\" style=\"width:80%\"><input type=\"text\" class=\"w3-text\" style=\"width: 223px;\" placeholder=\"Email\">\r\n  </div>\r\n  <div class=\"w3-row\">\r\n    <div class=\"w3-col w3-container\" style=\"width:35%\"></div>\r\n    <div class=\"w3-col w3-container w3-padding-16\" style=\"width:65%\"><button class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:100px\">Submit</button>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
