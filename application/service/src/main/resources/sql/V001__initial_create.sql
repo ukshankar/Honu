@@ -50,6 +50,7 @@ CREATE TABLE honuuser (
   passwordresettoken 		 varchar(65),
   passwordresetexpirydate 	 timestamp with time zone,
   migrated 					 boolean 		,
+  authString 		 varchar(65),
   version                    INT8           
 );
 

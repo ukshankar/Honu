@@ -1,7 +1,9 @@
 package com.honu.common.controller;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.security.GeneralSecurityException;
+import java.security.SecureRandom;
 import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.json.webtoken.JsonWebToken.Payload;
 import com.honu.common.configuration.TokenUtils;
 import com.honu.common.model.HonuUserAuthority;
+import com.honu.common.model.SignupReq;
 import com.honu.common.model.User;
 import com.honu.common.service.EmailService;
 import com.honu.common.service.UserService;
@@ -41,20 +44,32 @@ public class SignInController {
 	@Autowired
 	EmailService emailSer;
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping( method = RequestMethod.POST)
 	public @ResponseBody User signIn(@RequestBody User user) {
 
 	
 		//System.out.println("ENV"+System.getenv("AUTH"));
 		//if(Boolean.valueOf(System.getenv("AUTH")) || (System.getenv("AUTH") == null))  {
-				
+		/*
+		 * This will use the google token if present , it will just put a random password which will never be used since we use google auth
+		 */
+		if(user.getGoogleToken() != null) {		
 		try {
 			verifyToken(user.getGoogleToken(),user);
+			SecureRandom random = new SecureRandom();			  
+			String randomPassWord = new BigInteger(130, random).toString(32);
+			user.setPassword(randomPassWord);
 		} catch (GeneralSecurityException e) {
 			throw new RuntimeException("user not valid");
 		} catch (IOException e) {
 			throw new RuntimeException("user not valid");
 		}
+		} else {
+			if(!userSer.authenticateUser(user)) {
+				throw new RuntimeException("Invlaid Login");
+			}
+		}
+		
 	//	}
 		//System.out.println("Hello");
 		//user.setFirstName("Hello");
@@ -64,6 +79,7 @@ public class SignInController {
 		// already
 		User honuUser = userSer.findUserbyUserName(user.getUsername());
 
+		
 		if (honuUser == null) {
 			user.addUserRole(new HonuUserAuthority("VISITOR"));
 			userSer.save(user);
@@ -103,7 +119,34 @@ public class SignInController {
 		return user;
 
 	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.POST, headers = "Accept=application/json")
+	public void signUp(@RequestBody SignupReq req) {
+		User user = new User();
+		user.setEmail(req.getEmail());
+		user.setEnabled(false);
+		user.setPassword(req.getPassword());
+		SecureRandom random = new SecureRandom();			  
+		String randomAuth = new BigInteger(130, random).toString(32);
+		user.setAuthString(randomAuth);
+		userSer.save(user);		
+		emailSer.sendEmail(user.getEmail(), "Please complete signup", "Please click on http://careerrail.com/services/signon/confirm?auth="+randomAuth);
+		
+	}
 
+	@RequestMapping(value = "/confirm", method = RequestMethod.GET)
+	public void confirm(String auth,String email) {
+		User user = userSer.findUserbyUserName(email);
+		if(user== null) {
+			throw new RuntimeException("Invalid request");
+		}
+		if(user.getAuthString().equals(auth)) {
+			user.setEnabled(true);
+		}
+		userSer.update(user);
+		
+	}
+	
 	
 	public void verifyToken(String idTokenString, User user) throws GeneralSecurityException, IOException {
 		HttpTransport transport = GoogleNetHttpTransport.newTrustedTransport();
@@ -147,9 +190,9 @@ public class SignInController {
 			}
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="/check",method = RequestMethod.GET)
 	public @ResponseBody String get() {
-		System.out.println("Deployment is good");
+		System.out.println("Deployment is good!!");
 		return "Deployment Success!!";
 	}
 
