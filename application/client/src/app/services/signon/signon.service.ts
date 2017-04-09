@@ -21,4 +21,9 @@ export class SignonService {
       .map(res => <User>(res.json()));
   }
 
+  signUp(user:User): Observable<User> {
+    return this.httpService.postPresignOn(this.configService.serviceHost+'signup',user)
+      .map(res => <User>(res.json()));
+  }
+
 }

@@ -4,6 +4,8 @@ import { HttpService } from '../../services/utils';
 import { Router } from '@angular/router';
 
 
+
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -28,6 +30,8 @@ export class MainComponent implements OnInit {
 
   constructor( public configService: ConfigService, public httpService: HttpService,public route: Router ) { 
      this.name= JSON.parse(localStorage.getItem("user")).firstName;
+
+    
   }
 
   ngOnInit() {

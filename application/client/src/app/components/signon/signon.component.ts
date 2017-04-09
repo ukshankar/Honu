@@ -38,7 +38,7 @@ export class SignonComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('user_token', user.jwtToken);
         this.route.navigate(['main']);
-      })
+      });
     
   }
 

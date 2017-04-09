@@ -4,12 +4,14 @@
 <div class="w3-content" style="max-width:1500px">
   <!-- Header -->
   <div class="w3-container w3-center">
-    <div class="w3-panel"> <button class="w3-btn-block w3-grey w3-round" style="max-width:350px" [routerLink]=" ['/signon'] ">Resume & Cover Letter</button>      </div>
-    <div class="w3-panel"> <button class="w3-btn-block w3-grey w3-round" style="max-width:350px">Mock Interview</button> </div>
+         <div class="w3-panel"> <button class="w3-btn-block w3-grey w3-round" style="max-width:350px" [routerLink]=" ['/signon'] ">Resume & Cover Letter</button>      </div>
+
+    <div class="w3-panel"> <button class="w3-btn-block w3-grey w3-round" style="max-width:350px" (click)="showMessage()">Mock Interview</button> </div>
     <div class="w3-panel">
-      <button class="w3-btn-block w3-grey w3-round" style="max-width:350px">Career Advice</button> </div>
-    <div class="w3-panel">
-      <button class="w3-btn-block w3-grey w3-round" style="max-width:350px">Coach & Mentor</button> </div>
+      <button class="w3-btn-block w3-grey w3-round" style="max-width:350px" (click)="showMessage()">Career Advice</button> </div>
+     <div class="w3-panel">
+      <button class="w3-btn-block w3-grey w3-round" style="max-width:350px" (click)="showMessage()">Coach & Mentor</button> </div>
   </div>
+  <ng2-toasty></ng2-toasty>
   <!-- End Page Content -->
 </div>

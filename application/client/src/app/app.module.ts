@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {ToastyModule} from 'ng2-toasty';
 
 import { AppComponent } from './app.component';
 import { SignonComponent } from './components/signon';
@@ -15,6 +16,8 @@ import { SignonService } from './services/signon';
 import { HttpService } from './services/utils';
 import { ConfigService } from './services/config';
 import { AuthGuard } from './guards';
+import { SignupComponent } from './components/signup/signup.component';
+
 
 const APP_PROVIDERS = [
   SignonService, HttpService, ConfigService, AuthGuard
@@ -28,13 +31,15 @@ const APP_PROVIDERS = [
     HomeComponent,
     MainComponent,
     RegconfComponent,
-    GoogleSignInComponent
+    GoogleSignInComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    ToastyModule.forRoot()
   ],
   providers: [ APP_PROVIDERS ],
   bootstrap: [AppComponent]
