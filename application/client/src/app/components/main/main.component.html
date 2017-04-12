@@ -12,12 +12,18 @@
 </div>
 
 
-
+  <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm.value)">
 <div class="w3-row" style="margin-top: 20px;">
-  <div class="w3-container w3-quarter"><label>Area of interest:</label>
+
+  <div class="w3-container w3-quarter"><label>Category:</label>
   </div>
   <div class="w3-container w3-half">
-    <input class="w3-input w3-border" type="text" [(ngModel)]="form.aoi">
+    <select class="w3-select" formControlName="aoi">
+    <option value="" disabled selected>Choose your category</option>
+    <option *ngFor="let aoi of aoiList" [ngValue]="aoi.id">{{aoi.value}}</option>
+    </select>
+    <input placeholder="Enter area of interest" *ngIf="registerForm.get('aoi').value ==='other'"  class="w3-input w3-border" type="text" formControlName="otheraoi">
+    <p *ngIf="(registerForm.controls.aoi.touched && registerForm.controls.aoi.errors)||(registerForm.get('aoi').value =='other' && registerForm.controls.otheraoi.touched && registerForm.controls.otheraoi.errors)">This field is required!</p>
   </div>
   <div class="w3-container w3-quarter">
   </div>
@@ -26,13 +32,15 @@
   <div class="w3-container w3-quarter"><label>No. of years experience:</label>
   </div>
   <div class="w3-container w3-half">
-    <select class="w3-select" [(ngModel)]="form.exp">
+    <select class="w3-select" formControlName="exp">
   <option value="" disabled selected>Choose years</option>
   <option value="1">0-2</option>
   <option value="2">3-5</option>
   <option value="3">5-10</option>
   <option value="3">>10</option>
 </select>
+       <p *ngIf="registerForm.controls.exp.touched && registerForm.controls.exp.errors">This field is required!</p>
+
   </div>
   <div class="w3-container w3-quarter">
   </div>
@@ -41,7 +49,7 @@
   <div class="w3-container w3-quarter"><label>Location</label>
   </div>
   <div class="w3-container w3-half">
-    <input class="w3-input w3-border" type="text" [(ngModel)]="form.location">
+    <input class="w3-input w3-border" type="text" formControlName="location" placeholder="e.g Toronto, Montreal">
   </div>
   <div class="w3-container w3-quarter">
   </div>
@@ -50,11 +58,14 @@
   <div class="w3-container w3-quarter"><label>Details about yourself:</label>
   </div>
   <div class="w3-container w3-half">
-    <textarea [(ngModel)]="form.message" class="w3-text" rows="10" style="width: 100%;"></textarea>
+    <textarea formControlName="message" class="w3-text" rows="10" style="width: 100%;"></textarea>
+        <p *ngIf="registerForm.controls.message.touched && registerForm.controls.message?.errors">This field is required!</p>
+
   </div>
   <div class="w3-container w3-quarter">
   </div>
 </div>
+<!--
 <div class="w3-row" style="margin-top: 20px;">
   <div class="w3-container w3-quarter"><label>Available Timeslot:</label>
   </div>
@@ -67,13 +78,17 @@
   <div class="w3-container w3-quarter">
   </div>
 </div>
+-->
 <div class="w3-padding-small"></div>
 <div class="w3-row">
   <div class="w3-container w3-quarter">
   </div>
   <div class="w3-container w3-half" style="text-align: right;">
-    <button class="w3-btn w3-grey w3-round" (click)="submitDetails()">Submit</button>
+    <button class="w3-btn w3-grey w3-round" type="submit" [disabled]="!registerForm.valid">Submit</button>
   </div>
   <div class="w3-container w3-quarter">
   </div>
 </div>
+  </form>
+
+
