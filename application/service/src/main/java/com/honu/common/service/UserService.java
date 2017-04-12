@@ -12,4 +12,6 @@ public interface UserService {
 	boolean authenticateUser(User user);
 	
 	void addSkills(User user, Request skills);
+	
+	void update(User user);
 }

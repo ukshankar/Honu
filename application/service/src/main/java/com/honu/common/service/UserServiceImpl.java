@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public boolean authenticateUser(User user) {
 		User userFromDb = findUserbyUserName(user.getEmail());
-		return BCrypt.checkpw(user.getPassword(),userFromDb.getPassword());
+		return BCrypt.checkpw(user.getPassword(),userFromDb.getPassword())&& userFromDb.getEnabled();
 				
 		
 	}
@@ -41,6 +41,12 @@ public class UserServiceImpl implements UserService{
 	public void addSkills(User user, Request skills) {
 		skills.setUserId(user.getId());
 	 dao.addSkill(user, skills);
+		
+	}
+	
+	@Override
+	public void update(User user) {
+	 dao.update(user);
 		
 	}
 }

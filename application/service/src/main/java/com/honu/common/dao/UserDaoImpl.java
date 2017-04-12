@@ -33,6 +33,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao{
     @Override
     public void update(User stock) {
     	// TODO Auto-generated method stub
+    	updateObject(stock);
     	
     }
     

@@ -48,6 +48,11 @@ public class User implements UserDetails {
 	private Boolean accountNonLocked = true;
 	private Boolean credentialsNonExpired = true;
 	private Boolean enabled = true;
+	
+	/**
+	 * This string is used to compare the value which goes to email of the user for intial signup
+	 */
+	private String authString ;
 
 	/**
 	 * Set this one which comes form google
@@ -234,9 +239,17 @@ public class User implements UserDetails {
 		this.jwtToken = jwtToken;
 	}
 
+	public String getAuthString() {
+		return authString;
+	}
+	
+	public void setAuthString(String authString) {
+		this.authString = authString;
+	}
+	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
+		return "User [id=" + id + ", email=" + email + ", password=*******, firstName=" + firstName
 				+ ", lastName=" + lastName + ", lastPasswordReset=" + lastPasswordReset + ", reputation=" + reputation
 				+ ", authorities=" + authorities + ", accountNonExpired=" + accountNonExpired + ", accountNonLocked="
 				+ accountNonLocked + ", credentialsNonExpired=" + credentialsNonExpired + ", enabled=" + enabled
