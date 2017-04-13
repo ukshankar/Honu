@@ -27,6 +27,7 @@ public class SignUpController {
 
 	@RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
 	public @ResponseBody String  signUp(@RequestBody SignupReq req) {
+		System.out.println("called signup");
 		User user = new User();
 		user.setEmail(req.getEmail());
 		user.setIsActivated(false);
@@ -34,7 +35,13 @@ public class SignUpController {
 		SecureRandom random = new SecureRandom();			  
 		String randomAuth = new BigInteger(130, random).toString(32);
 		user.setAuthString(randomAuth);
-		userSer.save(user);		
+		try {
+			userSer.save(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "Signup error!! Please contact helpdesk";
+		}		
 		//emailSer.sendEmail(user.getEmail(), "Please complete signup", "Please click on http://careerrail.com/services/signup/confirm?auth="+randomAuth+"&email="+user.getEmail());
 		System.out.println("http://localhost:8888/services/signup/confirm?auth="+randomAuth+"&email="+user.getEmail());
 		return "Success!";
