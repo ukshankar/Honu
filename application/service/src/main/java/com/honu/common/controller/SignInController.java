@@ -124,7 +124,7 @@ public class SignInController {
 	public void signUp(@RequestBody SignupReq req) {
 		User user = new User();
 		user.setEmail(req.getEmail());
-		user.setEnabled(false);
+		user.setIsActivated(false);
 		user.setPassword(req.getPassword());
 		SecureRandom random = new SecureRandom();			  
 		String randomAuth = new BigInteger(130, random).toString(32);
@@ -141,7 +141,7 @@ public class SignInController {
 			throw new RuntimeException("Invalid request");
 		}
 		if(user.getAuthString().equals(auth)) {
-			user.setEnabled(true);
+			user.setIsActivated(true);
 		}
 		userSer.update(user);
 		

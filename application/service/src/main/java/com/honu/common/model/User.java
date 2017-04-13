@@ -47,8 +47,8 @@ public class User implements UserDetails {
 
 	private Boolean accountNonLocked = true;
 	private Boolean credentialsNonExpired = true;
-	private Boolean enabled = true;
-	
+	private Boolean isActivated = true;
+	private String biography;
 	/**
 	 * This string is used to compare the value which goes to email of the user for intial signup
 	 */
@@ -77,6 +77,14 @@ public class User implements UserDetails {
 		this.id = id;
 	}
 	
+	public String getBiography() {
+		return biography;
+	}
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
 	public Integer getReputation() {
 		return reputation;
 	}
@@ -179,14 +187,14 @@ public class User implements UserDetails {
 		this.credentialsNonExpired = credentialsNonExpired;
 	}
 
-	@Transient
+	
 
-	public Boolean getEnabled() {
-		return enabled;
+	public Boolean getIsActivated() {
+		return isActivated;
 	}
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
+	public void setIsActivated(Boolean isActivated) {
+		this.isActivated = isActivated;
 	}
 
 	public void setLastPasswordReset(Date lastPasswordReset) {
@@ -252,7 +260,7 @@ public class User implements UserDetails {
 		return "User [id=" + id + ", email=" + email + ", password=*******, firstName=" + firstName
 				+ ", lastName=" + lastName + ", lastPasswordReset=" + lastPasswordReset + ", reputation=" + reputation
 				+ ", authorities=" + authorities + ", accountNonExpired=" + accountNonExpired + ", accountNonLocked="
-				+ accountNonLocked + ", credentialsNonExpired=" + credentialsNonExpired + ", enabled=" + enabled
+				+ accountNonLocked + ", credentialsNonExpired=" + credentialsNonExpired + ", enabled=" + isActivated
 				+ ", googleToken=" + googleToken + ", jwtToken=" + jwtToken + "]";
 	}
 	

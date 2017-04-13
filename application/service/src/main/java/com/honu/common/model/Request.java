@@ -26,7 +26,7 @@ import org.hibernate.annotations.Where;
 public class Request {
 	
 	private Long id;
-	private Integer reqId;
+	private Long reqId;
 	private Long userId;
 	private ReqType type;
 	private String message;
@@ -59,10 +59,10 @@ public class Request {
 	}
 	
 	@Column(name = "userReqId")
-	public int getReqId() {
+	public long getReqId() {
 		return reqId;
 	}
-	public void setReqId(int reqId) {
+	public void setReqId(long reqId) {
 		this.reqId = reqId;
 	}
 	
