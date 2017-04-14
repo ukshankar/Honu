@@ -17,6 +17,7 @@ import { HttpService } from './services/utils';
 import { ConfigService } from './services/config';
 import { AuthGuard } from './guards';
 import { SignupComponent } from './components/signup/signup.component';
+import { ContactusComponent } from './components/contactus/contactus.component';
 
 
 const APP_PROVIDERS = [
@@ -32,7 +33,8 @@ const APP_PROVIDERS = [
     MainComponent,
     RegconfComponent,
     GoogleSignInComponent,
-    SignupComponent
+    SignupComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

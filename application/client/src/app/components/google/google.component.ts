@@ -1,5 +1,5 @@
 import {Component, AfterViewInit, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
-
+import { Router } from '@angular/router';
 
 
 export class GoogleSignInSuccess {
@@ -79,9 +79,17 @@ export class GoogleSignInComponent implements AfterViewInit {
   @Output() googleSignInFailure: EventEmitter<GoogleSignInFailure> = new EventEmitter<GoogleSignInFailure>();
 
   ngAfterViewInit() {
+
+    if ("undefined" === typeof gapi) {
+      this.route.navigate(['/']);
+      return;
+    }
     this.auth2Init();
     this.renderButton();
   }
+
+   constructor(public route: Router) { }
+ 
 
   private auth2Init() {
     if (this.clientId == null)
