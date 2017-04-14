@@ -26,12 +26,15 @@ import org.hibernate.annotations.Where;
 public class Request {
 	
 	private Long id;
-	private Integer reqId;
+	private Long reqId;
 	private Long userId;
 	private ReqType type;
 	private String message;
 	private Date createdTs;
 	private Date updatedTs;
+	private String exp;
+	private String location;
+	private String aoi;
 	
 	
 	private List<Event> eventLst = new ArrayList<Event>(2);
@@ -59,10 +62,10 @@ public class Request {
 	}
 	
 	@Column(name = "userReqId")
-	public int getReqId() {
+	public long getReqId() {
 		return reqId;
 	}
-	public void setReqId(int reqId) {
+	public void setReqId(long reqId) {
 		this.reqId = reqId;
 	}
 	
@@ -106,6 +109,32 @@ public class Request {
 	}
 	public void setEventLst(List<Event> eventLst) {
 		this.eventLst = eventLst;
+	}
+
+	
+	
+	public String getExp() {
+		return exp;
+	}
+
+	public void setExp(String exp) {
+		this.exp = exp;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getAoi() {
+		return aoi;
+	}
+
+	public void setAoi(String aoi) {
+		this.aoi = aoi;
 	}
 
 	@Override

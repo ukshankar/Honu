@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public boolean authenticateUser(User user) {
 		User userFromDb = findUserbyUserName(user.getEmail());
-		return BCrypt.checkpw(user.getPassword(),userFromDb.getPassword())&& userFromDb.getEnabled();
+		return BCrypt.checkpw(user.getPassword(),userFromDb.getPassword())&& userFromDb.getIsActivated();
 				
 		
 	}

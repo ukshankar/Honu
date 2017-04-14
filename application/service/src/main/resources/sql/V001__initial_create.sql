@@ -74,6 +74,9 @@ userReqId SERIAL8,
 userId SERIAL8,
 reqType    VARCHAR(500),
 message    VARCHAR(500),
+exp    VARCHAR(500),
+location    VARCHAR(500),
+aoi    VARCHAR(500),
 createdTs 	 timestamp with time zone,
 updatedTs 	 timestamp with time zone
 );

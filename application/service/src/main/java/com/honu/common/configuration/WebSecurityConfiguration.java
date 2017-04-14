@@ -101,6 +101,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
       .authorizeRequests()
         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
         .antMatchers("/services/signon/**").permitAll()
+        .antMatchers("/services/signup/**").permitAll()
         .antMatchers("/*").permitAll()
         .antMatchers("/services/appointments/*").hasAuthority("VISITOR")
         .anyRequest().authenticated();
