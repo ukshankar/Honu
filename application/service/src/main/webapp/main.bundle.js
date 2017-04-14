@@ -1,5 +1,26 @@
 webpackJsonp([1,4],{
 
+/***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(72);
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+}
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
 /***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -36,22 +57,22 @@ AppComponent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_toasty__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_toasty__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_signon__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_home__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_main__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_regconf__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_signon__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_home__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_main__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_regconf__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_router__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_routes__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_google__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_signon__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_utils__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_config__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__guards__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_signup_signup_component__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_config__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__guards__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_signup_signup_component__ = __webpack_require__(68);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -99,6 +120,7 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_10__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_routes__["a" /* ROUTES */], { useHash: true, preloadingStrategy: __WEBPACK_IMPORTED_MODULE_10__angular_router__["b" /* PreloadAllModules */] }),
             __WEBPACK_IMPORTED_MODULE_4_ng2_toasty__["a" /* ToastyModule */].forRoot()
@@ -116,12 +138,12 @@ AppModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_signon__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_main__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_home__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_signon__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_main__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_signup__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_regconf__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__guards__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_regconf__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__guards__ = __webpack_require__(69);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ROUTES; });
 
 
@@ -338,7 +360,7 @@ var _a, _b;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_toasty__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_toasty__ = __webpack_require__(84);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -398,9 +420,10 @@ var _a, _b;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_config__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_config__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_utils__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(62);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -415,36 +438,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MainComponent = (function () {
-    function MainComponent(configService, httpService, route) {
+    function MainComponent(configService, httpService, route, formBuilder) {
         this.configService = configService;
         this.httpService = httpService;
         this.route = route;
+        this.formBuilder = formBuilder;
         this.name = null;
-        this.form = {
-            "reqId": 1,
-            "type": null,
-            "aoi": null,
-            "exp": "",
-            "location": null,
-            "message": null,
-            "timeSlot": "",
-            "createdTs": null,
-            "updatedTs": null
-        };
+        this.aoiList = [{ value: "Software Engineer", id: "softeng" }, { value: "Customer Service Representative", id: "csr" }, { value: "Business Analyst", id: "ba" }, { value: "Other", id: "other" }];
         this.userdetails = "";
         this.name = JSON.parse(localStorage.getItem("user")).firstName;
     }
     MainComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.httpService.get(this.configService.serviceHost + "calendar/events")
-            .subscribe(function (result) {
-            _this.slotList = result.json();
+        this.registerForm = this.formBuilder.group({
+            aoi: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* Validators */].required],
+            exp: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* Validators */].required],
+            message: [, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* Validators */].required],
+            location: [],
+            otheraoi: []
         });
+        /*this.httpService.get(this.configService.serviceHost + "calendar/events")
+                       .subscribe(result => {
+                         this.slotList =result.json()
+                        });*/
     };
-    MainComponent.prototype.submitDetails = function () {
+    MainComponent.prototype.submitForm = function (value) {
         var _this = this;
-        this.httpService.post(this.configService.serviceHost + "users/skills", this.form).subscribe(function (res) {
+        this.httpService.post(this.configService.serviceHost + "users/skills", value).subscribe(function (res) {
             console.log(res);
             _this.route.navigate(['regconf']);
         });
@@ -457,10 +478,10 @@ MainComponent = __decorate([
         template: __webpack_require__(183),
         styles: [__webpack_require__(174)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_config__["a" /* ConfigService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_config__["a" /* ConfigService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_utils__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_utils__["a" /* HttpService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_config__["a" /* ConfigService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_config__["a" /* ConfigService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_utils__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_utils__["a" /* HttpService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* FormBuilder */]) === "function" && _d || Object])
 ], MainComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=main.component.js.map
 
 /***/ }),
@@ -525,23 +546,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var SignonComponent = (function () {
-    function SignonComponent(route, signonService) {
+    function SignonComponent(route, signonService, zone) {
         this.route = route;
         this.signonService = signonService;
+        this.zone = zone;
         this.myLongTitle = "true";
         this.myTheme = "dark";
         this.myWidth = "223";
         this.myClientId = '280072419521-l9s8j0jig6oee7hqrs1a53itd86dre0h.apps.googleusercontent.com';
+        this.userAuth = false;
     }
     SignonComponent.prototype.ngOnInit = function () {
     };
     SignonComponent.prototype.onGoogleSignInSuccess = function (event) {
         var _this = this;
-        var googleUser = event.googleUser;
-        var profile = googleUser.getBasicProfile();
-        console.log('Name: ' + profile.getName());
-        var usrObj = { "googleToken": googleUser.getAuthResponse().id_token, "email": profile.getEmail(), "password": "" };
-        this.signonService.signIn(usrObj)
+        this.zone.run(function () {
+            var googleUser = event.googleUser;
+            var profile = googleUser.getBasicProfile();
+            console.log('Name: ' + profile.getName());
+            _this.usrObj = { "googleToken": googleUser.getAuthResponse().id_token, "email": profile.getEmail(), "password": "" };
+            _this.userAuth = true;
+            _this.signIn();
+        });
+    };
+    SignonComponent.prototype.signIn = function () {
+        var _this = this;
+        this.signonService.signIn(this.usrObj)
             .subscribe(function (user) {
             console.log(user);
             localStorage.setItem('user', JSON.stringify(user));
@@ -557,10 +587,10 @@ SignonComponent = __decorate([
         template: __webpack_require__(185),
         styles: [__webpack_require__(176)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_signon_signon_service__["a" /* SignonService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_signon_signon_service__["a" /* SignonService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_signon_signon_service__["a" /* SignonService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_signon_signon_service__["a" /* SignonService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _c || Object])
 ], SignonComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=signon.component.js.map
 
 /***/ }),
@@ -569,7 +599,7 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__signup_component__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__signup_component__ = __webpack_require__(68);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__signup_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
@@ -621,7 +651,7 @@ AuthGuard = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(63);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -798,7 +828,7 @@ module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-6
 /***/ 183:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Hi {{name}}\n  </div>\n</div>\n\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Thank you for your interest\n  </div>\n</div>\n\n\n\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Area of interest:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <input class=\"w3-input w3-border\" type=\"text\" [(ngModel)]=\"form.aoi\">\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>No. of years experience:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <select class=\"w3-select\" [(ngModel)]=\"form.exp\">\n  <option value=\"\" disabled selected>Choose years</option>\n  <option value=\"1\">0-2</option>\n  <option value=\"2\">3-5</option>\n  <option value=\"3\">5-10</option>\n  <option value=\"3\">>10</option>\n</select>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Location</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <input class=\"w3-input w3-border\" type=\"text\" [(ngModel)]=\"form.location\">\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Details about yourself:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <textarea [(ngModel)]=\"form.message\" class=\"w3-text\" rows=\"10\" style=\"width: 100%;\"></textarea>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Available Timeslot:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n<select class=\"w3-select\" [(ngModel)]=\"form.timeSlot\">\n    <option value=\"\" disabled selected>Choose your timeslot</option>\n    <option *ngFor=\"let slot of slotList\" [ngValue]=\"slot.id\">{{slot.start.dateTime.value | date: 'medium'}} - {{slot.end.dateTime.value | date: 'shortTime'}}</option>\n</select>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-padding-small\"></div>\n<div class=\"w3-row\">\n  <div class=\"w3-container w3-quarter\">\n  </div>\n  <div class=\"w3-container w3-half\" style=\"text-align: right;\">\n    <button class=\"w3-btn w3-grey w3-round\" (click)=\"submitDetails()\">Submit</button>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Hi {{name}}\n  </div>\n</div>\n\n<div class=\"w3-row\">\n  <div class=\"w3-container\">Thank you for your interest\n  </div>\n</div>\n\n\n  <form [formGroup]=\"registerForm\" (ngSubmit)=\"submitForm(registerForm.value)\">\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n\n  <div class=\"w3-container w3-quarter\"><label>Category:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <select class=\"w3-select\" formControlName=\"aoi\">\n    <option value=\"\" disabled selected>Choose your category</option>\n    <option *ngFor=\"let aoi of aoiList\" [ngValue]=\"aoi.id\">{{aoi.value}}</option>\n    </select>\n    <input placeholder=\"Enter area of interest\" *ngIf=\"registerForm.get('aoi').value ==='other'\"  class=\"w3-input w3-border\" type=\"text\" formControlName=\"otheraoi\">\n    <p *ngIf=\"(registerForm.controls.aoi.touched && registerForm.controls.aoi.errors)||(registerForm.get('aoi').value =='other' && registerForm.controls.otheraoi.touched && registerForm.controls.otheraoi.errors)\">This field is required!</p>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>No. of years experience:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <select class=\"w3-select\" formControlName=\"exp\">\n  <option value=\"\" disabled selected>Choose years</option>\n  <option value=\"1\">0-2</option>\n  <option value=\"2\">3-5</option>\n  <option value=\"3\">5-10</option>\n  <option value=\"3\">>10</option>\n</select>\n       <p *ngIf=\"registerForm.controls.exp.touched && registerForm.controls.exp.errors\">This field is required!</p>\n\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Location</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <input class=\"w3-input w3-border\" type=\"text\" formControlName=\"location\" placeholder=\"e.g Toronto, Montreal\">\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Details about yourself:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n    <textarea formControlName=\"message\" class=\"w3-text\" rows=\"10\" style=\"width: 100%;\"></textarea>\n        <p *ngIf=\"registerForm.controls.message.touched && registerForm.controls.message?.errors\">This field is required!</p>\n\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n<!--\n<div class=\"w3-row\" style=\"margin-top: 20px;\">\n  <div class=\"w3-container w3-quarter\"><label>Available Timeslot:</label>\n  </div>\n  <div class=\"w3-container w3-half\">\n<select class=\"w3-select\" [(ngModel)]=\"form.timeSlot\">\n    <option value=\"\" disabled selected>Choose your timeslot</option>\n    <option *ngFor=\"let slot of slotList\" [ngValue]=\"slot.id\">{{slot.start.dateTime.value | date: 'medium'}} - {{slot.end.dateTime.value | date: 'shortTime'}}</option>\n</select>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n-->\n<div class=\"w3-padding-small\"></div>\n<div class=\"w3-row\">\n  <div class=\"w3-container w3-quarter\">\n  </div>\n  <div class=\"w3-container w3-half\" style=\"text-align: right;\">\n    <button class=\"w3-btn w3-grey w3-round\" type=\"submit\" [disabled]=\"!registerForm.valid\">Submit</button>\n  </div>\n  <div class=\"w3-container w3-quarter\">\n  </div>\n</div>\n  </form>\n\n\n"
 
 /***/ }),
 
@@ -812,21 +842,21 @@ module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-center w3
 /***/ 185:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row w3-padding-8\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\" style=\"width:60%\">\n    <google-signin [clientId]=\"myClientId\" [width]=\"myWidth\" [theme]=\"myTheme\" [scope]=\"myScope\" [longTitle]=\"myLongTitle\"\n      (googleSignInSuccess)=\"onGoogleSignInSuccess($event)\"></google-signin>\n  </div>\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n</div>\n<div class=\"w3-row w3-padding-8\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\" style=\"width:80%\"><button [routerLink]=\" ['/signup'] \" class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:100px\">Sign Up</button>\n  </div>\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-row w3-padding-8\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\" style=\"width:60%\">\n    <google-signin  [clientId]=\"myClientId\" [width]=\"myWidth\" [theme]=\"myTheme\" [scope]=\"myScope\" [longTitle]=\"myLongTitle\"\n      (googleSignInSuccess)=\"onGoogleSignInSuccess($event)\"></google-signin>\n  </div>\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n</div>\n<div class=\"w3-row w3-padding-8\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\" style=\"width:80%\"><button [routerLink]=\" ['/signup'] \" class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:100px\">Sign Up</button>\n  </div>\n</div>"
 
 /***/ }),
 
 /***/ 186:
 /***/ (function(module, exports) {
 
-module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-center  w3-row \">\n  <div class=\"w3-col s3\">Email</div>\n  <div class=\"w3-col s8\"><input class=\"w3-input w3-border\" type=\"text\" [(ngModel)]=\"user.email\">\n</div>\n<div class=\"w3-center  w3-row w3-padding-64\">\n  <div class=\"w3-col s3\">Password</div>\n  <div class=\"w3-col s8\"><input class=\"w3-input w3-border\" type=\"password\" [(ngModel)]=\"user.password\">\n</div>\n<div class=\"w3-center  w3-row w3-padding-64\">\n  <div class=\"w3-col s3\">Confirm Password</div>\n  <div class=\"w3-col s8\"><input class=\"w3-input w3-border\" type=\"password\" [(ngModel)]=\"user.password2\">\n</div>\n<div class=\"w3-row w3-padding-64\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\"><button (click)=\"submit()\" class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:100px\">Submit</button>\n  </div>\n</div>"
+module.exports = "<Header id=\"home\" class=\"w3-container w3-panel w3-padding-64 w3-center w3-opacity\">\n  <h1 id=\"header\">HONU</h1>\n</Header>\n<div class=\"w3-center  w3-row \">\n  <div class=\"w3-col s3\">Email</div>\n  <div class=\"w3-col s8\"><input class=\"w3-input w3-border\" type=\"text\" [(ngModel)]=\"user.email\">\n</div>\n<div class=\"w3-center  w3-row w3-padding-64\">\n  <div class=\"w3-col s3\">Password</div>\n  <div class=\"w3-col s8\"><input class=\"w3-input w3-border\" type=\"password\" [(ngModel)]=\"user.password\">\n</div>\n<div class=\"w3-center  w3-row w3-padding-64\">\n  <div class=\"w3-col s3\">Confirm Password</div>\n  <div class=\"w3-col s8\"><input class=\"w3-input w3-border\" type=\"password\" [(ngModel)]=\"user.password2\">\n</div>\n<div class=\"w3-row w3-padding-64\">\n  <div class=\"w3-col w3-container\" style=\"width:20%\"></div>\n  <div class=\"w3-col w3-container\"><button (click)=\"submit()\" class=\"w3-btn-block w3-grey w3-round\" style=\"max-width:100px\">Submit</button>\n  </div>\n</div>\n{{'XXXX-'+ user.email}}"
 
 /***/ }),
 
 /***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(99);
+module.exports = __webpack_require__(100);
 
 
 /***/ }),
@@ -836,7 +866,7 @@ module.exports = __webpack_require__(99);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_config_service__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_config_service__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_utils__ = __webpack_require__(35);
@@ -891,7 +921,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 63:
+/***/ 64:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -902,7 +932,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 64:
+/***/ 65:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -913,7 +943,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 65:
+/***/ 66:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -924,7 +954,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 66:
+/***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -935,7 +965,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 67:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -994,7 +1024,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 68:
+/***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1005,12 +1035,12 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 69:
+/***/ 70:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__(72);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfigService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1039,18 +1069,18 @@ ConfigService = __decorate([
 
 /***/ }),
 
-/***/ 70:
+/***/ 71:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_service__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_service__ = __webpack_require__(70);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__config_service__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 71:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1065,7 +1095,7 @@ var environment = {
 
 /***/ }),
 
-/***/ 98:
+/***/ 99:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -1074,29 +1104,8 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 98;
+webpackEmptyContext.id = 99;
 
-
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(71);
-
-
-
-
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
-}
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
 
 /***/ })
 
