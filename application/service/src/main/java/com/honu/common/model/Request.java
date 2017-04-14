@@ -32,6 +32,9 @@ public class Request {
 	private String message;
 	private Date createdTs;
 	private Date updatedTs;
+	private String exp;
+	private String location;
+	private String aoi;
 	
 	
 	private List<Event> eventLst = new ArrayList<Event>(2);
@@ -106,6 +109,32 @@ public class Request {
 	}
 	public void setEventLst(List<Event> eventLst) {
 		this.eventLst = eventLst;
+	}
+
+	
+	
+	public String getExp() {
+		return exp;
+	}
+
+	public void setExp(String exp) {
+		this.exp = exp;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getAoi() {
+		return aoi;
+	}
+
+	public void setAoi(String aoi) {
+		this.aoi = aoi;
 	}
 
 	@Override

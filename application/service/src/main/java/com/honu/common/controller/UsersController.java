@@ -39,7 +39,7 @@ public class UsersController {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		r.setReqId(System.currentTimeMillis());
 		userSer.addSkills(user, r);
-        emailSer.sendEmail(user.getEmail(), "Your CareerRail Request made at "+(new Date()), r.toString());
+        emailSer.sendEmail(user.getEmail(), "Your CareerRail Request made at "+(new Date()), " Your request Id is "+r.getReqId());
 		return r;
 	}
 
