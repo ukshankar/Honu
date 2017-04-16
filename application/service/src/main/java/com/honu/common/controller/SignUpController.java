@@ -45,6 +45,7 @@ public class SignUpController {
 		}		
 		emailSer.sendEmail(user.getEmail(), "Please complete signup", "Please click on http://careerrail.com/services/signup/confirm?auth="+randomAuth+"&email="+user.getEmail());
 		System.out.println("http://localhost:8888/services/signup/confirm?auth="+randomAuth+"&email="+user.getEmail());
+		user.setPassword("");
 		return user;
 		
 	}
