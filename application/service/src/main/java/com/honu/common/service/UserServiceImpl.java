@@ -23,6 +23,9 @@ public class UserServiceImpl implements UserService{
         dao.save(user);
     }
 	
+	/**
+	 * This method is to find username
+	 */
 	@Override
 	public User findUserbyUserName(String username) {
 	
