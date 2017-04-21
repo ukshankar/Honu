@@ -23,6 +23,7 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.json.webtoken.JsonWebToken.Payload;
 import com.honu.common.configuration.TokenUtils;
+import com.honu.common.model.BaseModel;
 import com.honu.common.model.HonuUserAuthority;
 import com.honu.common.model.SignupReq;
 import com.honu.common.model.User;
@@ -48,75 +49,81 @@ public class SignInController {
 	public @ResponseBody User signIn(@RequestBody User user) {
 
 	
-		//System.out.println("ENV"+System.getenv("AUTH"));
-		//if(Boolean.valueOf(System.getenv("AUTH")) || (System.getenv("AUTH") == null))  {
-		/*
-		 * This will use the google token if present , it will just put a random password which will never be used since we use google auth
-		 */
-		if(user.getGoogleToken() != null) {		
 		try {
-			verifyToken(user.getGoogleToken(),user);
-			SecureRandom random = new SecureRandom();			  
-			String randomPassWord = new BigInteger(130, random).toString(32);
-			user.setPassword(randomPassWord);
-		} catch (GeneralSecurityException e) {
-			throw new RuntimeException("user not valid");
-		} catch (IOException e) {
-			throw new RuntimeException("user not valid");
-		}
-		} else {
-			if(!userSer.authenticateUser(user)) {
-				throw new RuntimeException("Invlaid Login");
+			//System.out.println("ENV"+System.getenv("AUTH"));
+			//if(Boolean.valueOf(System.getenv("AUTH")) || (System.getenv("AUTH") == null))  {
+			/*
+			 * This will use the google token if present , it will just put a random password which will never be used since we use google auth
+			 */
+			if(user.getGoogleToken() != null) {		
+			
+				verifyToken(user.getGoogleToken(),user);
+				SecureRandom random = new SecureRandom();			  
+				String randomPassWord = new BigInteger(130, random).toString(32);
+				user.setPassword(randomPassWord);
+			
+			} else {
+				if(!userSer.authenticateUser(user)) {
+					User userError =new User();
+					userError.setRespoonseCode(BaseModel.NOT_OK);
+					return userError;
+				}
 			}
-		}
-		
-	//	}
-		//System.out.println("Hello");
-		//user.setFirstName("Hello");
+			
+//	}
+			//System.out.println("Hello");
+			//user.setFirstName("Hello");
 
-		// Check if the google token is valid
-		// if its valid then create this user in our DB if it does not exists
-		// already
-		User honuUser = userSer.findUserbyUserName(user.getUsername());
+			// Check if the google token is valid
+			// if its valid then create this user in our DB if it does not exists
+			// already
+			User honuUser = userSer.findUserbyUserName(user.getUsername());
 
-		
-		if (honuUser == null) {
-			user.addUserRole(new HonuUserAuthority("VISITOR"));
-			userSer.save(user);
 			
-			emailSer.sendEmail(user.getEmail(),  "Welcome to CareerRail!!", "Thank you for your interest, we will get back to you shortly.");
+			if (honuUser == null) {
+				user.addUserRole(new HonuUserAuthority("VISITOR"));
+				userSer.save(user);
+				
+				emailSer.sendEmail(user.getEmail(),  "Welcome to CareerRail!!", "Thank you for your interest, we will get back to you shortly.");
+				
+			}
+			Device newDevice = new Device() {
+				
+				@Override
+				public boolean isTablet() {
+					// TODO Auto-generated method stub
+					return false;
+				}
+				
+				@Override
+				public boolean isNormal() {
+					// TODO Auto-generated method stub
+					return false;
+				}
+				
+				@Override
+				public boolean isMobile() {
+					// TODO Auto-generated method stub
+					return false;
+				}
+				
+				@Override
+				public DevicePlatform getDevicePlatform() {
+					// TODO Auto-generated method stub
+					return DevicePlatform.ANDROID;
+				}
+			};
+			
+			String token = this.tokenUtils.generateToken(user, newDevice);
+			user.setJwtToken(token);
+			return user;
+		} catch (Exception e) {
+			
+				User userError =new User();
+				userError.setRespoonseCode(BaseModel.NOT_OK);
+				return userError;
 			
 		}
-		Device newDevice = new Device() {
-			
-			@Override
-			public boolean isTablet() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public boolean isNormal() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public boolean isMobile() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-			
-			@Override
-			public DevicePlatform getDevicePlatform() {
-				// TODO Auto-generated method stub
-				return DevicePlatform.ANDROID;
-			}
-		};
-		
-		String token = this.tokenUtils.generateToken(user, newDevice);
-		user.setJwtToken(token);
-		return user;
 
 	}
 	

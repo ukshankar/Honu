@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.honu.common.model.BaseModel;
 import com.honu.common.model.SignupReq;
 import com.honu.common.model.User;
 import com.honu.common.service.EmailService;
@@ -38,10 +39,10 @@ public class SignUpController {
 		try {
 			userSer.save(user);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			throw new RuntimeException("Something went wrong");
+			User userError =new User();
+			userError.setRespoonseCode(BaseModel.NOT_OK);
+			userError.setMessage(e.getMessage());
+			return userError;
 		}		
 		emailSer.sendEmail(user.getEmail(), "Please complete signup", "Please click on http://careerrail.com/services/signup/confirm?auth="+randomAuth+"&email="+user.getEmail());
 		System.out.println("http://localhost:8888/services/signup/confirm?auth="+randomAuth+"&email="+user.getEmail());
