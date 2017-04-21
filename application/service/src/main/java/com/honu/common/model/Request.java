@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.OnDelete;
@@ -23,7 +24,7 @@ import org.hibernate.annotations.SortType;
 import org.hibernate.annotations.Where;
 @Entity
 @Table(name = "honurequest")
-public class Request {
+public class Request implements BaseModel{
 	
 	private Long id;
 	private Long reqId;
@@ -143,7 +144,14 @@ public class Request {
 				+ message + ", createdTs=" + createdTs + ", updatedTs=" + updatedTs + ", eventLst=" + eventLst + "]";
 	}
 	
-			
+	@Transient
+    @Override
+    public int getResponse() {
+    	// TODO Auto-generated method stub
+    	return BaseModel.OK;
+    }
+    
+    
 	
 	
 }
